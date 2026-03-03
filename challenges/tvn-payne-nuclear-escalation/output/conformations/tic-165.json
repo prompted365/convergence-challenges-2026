@@ -1,0 +1,37 @@
+{
+  "type": "conformation",
+  "tic_count_physical": 165,
+  "tic": "2026-03-03T05:49:09Z",
+  "tic_zone": "operationTorque-estate",
+  "snapshot_at": "2026-03-03T05:50:05.247373+00:00",
+  "active_signals": [],
+  "active_warrants": [],
+  "pending_cogprs": 1,
+  "zone": {
+    "name": "operationTorque-estate",
+    "bands": [
+      "PRIMITIVE",
+      "COGNITIVE",
+      "SOCIAL",
+      "PRESTIGE"
+    ],
+    "muffling_per_hop": 5
+  },
+  "rules_in_force": {
+    "project": {
+      "file": "CLAUDE.md",
+      "lines": 884,
+      "bytes": 74261
+    },
+    "global": {
+      "file": "~/.claude/CLAUDE.md",
+      "lines": 116,
+      "bytes": 8034
+    }
+  },
+  "counts": {
+    "active_signals": 0,
+    "active_warrants": 0,
+    "pending_cogprs": 1
+  }
+}

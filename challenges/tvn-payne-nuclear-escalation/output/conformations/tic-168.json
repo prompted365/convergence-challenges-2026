@@ -1,0 +1,17 @@
+{
+  "type": "conformation",
+  "tic": 168,
+  "timestamp": "2026-03-03T09:01:06.969976+00:00",
+  "zone": "operationTorque-estate",
+  "signals": {
+    "active": 0,
+    "warrants": 0,
+    "harmonic_triads": 0
+  },
+  "cprs": {
+    "pending": 3,
+    "total_in_queue": 3,
+    "queue_source": "audit-logs/cprs/queue.jsonl"
+  },
+  "rules_in_force": []
+}

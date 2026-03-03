@@ -1,0 +1,44 @@
+{
+  "type": "conformation",
+  "tic_count_physical": 166,
+  "tic": "2026-03-03T06:46:59Z",
+  "tic_zone": "operationTorque-estate",
+  "snapshot_at": "2026-03-03T06:47:52Z",
+  "active_signals": [],
+  "active_warrants": [],
+  "pending_cogprs": 1,
+  "zone": {
+    "name": "operationTorque-estate",
+    "tz": "America/Toronto",
+    "lat": 43.6532,
+    "lon": -79.3832,
+    "include": [
+      ".",
+      "~/.claude"
+    ],
+    "bands": [
+      "PRIMITIVE",
+      "COGNITIVE",
+      "SOCIAL",
+      "PRESTIGE"
+    ],
+    "muffling_per_hop": 5
+  },
+  "rules_in_force": {
+    "project": {
+      "file": "/Users/breydentaylor/operationTorque/CLAUDE.md",
+      "lines": 883,
+      "bytes": 74261
+    },
+    "global": {
+      "file": "~/.claude/CLAUDE.md",
+      "lines": 115,
+      "bytes": 8034
+    }
+  },
+  "counts": {
+    "active_signals": 0,
+    "active_warrants": 0,
+    "pending_cogprs": 1
+  }
+}

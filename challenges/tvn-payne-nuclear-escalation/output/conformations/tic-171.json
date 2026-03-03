@@ -1,0 +1,14 @@
+{
+  "type": "conformation",
+  "tic": 171,
+  "ts": "2026-03-03T13:25:53Z",
+  "zone": "operationTorque-estate",
+  "active_signals": 0,
+  "active_warrants": 0,
+  "pending_cprs": 1,
+  "rules": {
+    "project_claude_md_lines": 883,
+    "global_claude_md_lines": 116
+  },
+  "posture": "ENG/DIRECT"
+}

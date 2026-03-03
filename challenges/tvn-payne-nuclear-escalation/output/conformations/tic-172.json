@@ -1,0 +1,103 @@
+{
+  "type": "conformation",
+  "tic_count_physical": 172,
+  "tic": "2026-03-03T15:54:26Z",
+  "tic_zone": "operationTorque-estate",
+  "snapshot_at": "2026-03-03T15:55:33Z",
+  "active_signals": [],
+  "active_warrants": [],
+  "pending_cogprs": [
+    {
+      "source": "/Users/breydentaylor/.claude/projects/-Users-breydentaylor-eesystem-podcast-pipeline-prod/memory/MEMORY.md:117",
+      "lesson": "Cold-start estate audits benefit from 3 parallel agents: (1) DB+clip mapper, (2) tool evaluator, (3) clip discovery \u2014 each returns structured report for synthesis",
+      "band": "COGNITIVE",
+      "subsystem": "ecotone",
+      "status": "pending",
+      "recommended_scopes": []
+    },
+    {
+      "source": "/Users/breydentaylor/.claude/projects/-Users-breydentaylor-eesystem-podcast-pipeline-prod/memory/MEMORY.md:153",
+      "lesson": "Studio video frame snapshots as reference images dramatically outperform isolated headshots for both character fidelity and environment accuracy",
+      "band": "COGNITIVE",
+      "subsystem": "visual_assets",
+      "status": "pending",
+      "recommended_scopes": []
+    },
+    {
+      "source": "/Users/breydentaylor/.claude/projects/-Users-breydentaylor-eesystem-podcast-pipeline-prod/memory/MEMORY.md:190",
+      "lesson": "Character fidelity text descriptions must match actual reference photos \u2014 conflicting text causes model to generate hybrid faces matching neither text nor refs",
+      "band": "COGNITIVE",
+      "subsystem": "visual_assets",
+      "status": "pending",
+      "recommended_scopes": []
+    },
+    {
+      "source": "/Users/breydentaylor/.claude/projects/-Users-breydentaylor-eesystem-podcast-pipeline-prod/memory/MEMORY.md:215",
+      "lesson": "Sectioned prompts with clear headers reduce model cognitive load and improve fidelity across all concerns (character, brand, scene)",
+      "band": "COGNITIVE",
+      "subsystem": "visual_assets",
+      "status": "pending",
+      "recommended_scopes": []
+    },
+    {
+      "source": "/Users/breydentaylor/.claude/projects/-Users-breydentaylor-eesystem-podcast-pipeline-prod/memory/MEMORY.md:237",
+      "lesson": "Failed generation runs must be preserved in deprecated/ \u2014 they contain diagnostic data about safety filters, character drift, and prompt issues",
+      "band": "COGNITIVE",
+      "subsystem": "visual_assets",
+      "status": "pending",
+      "recommended_scopes": []
+    },
+    {
+      "source": "/Users/breydentaylor/.claude/projects/-Users-breydentaylor-eesystem-podcast-pipeline-prod/memory/MEMORY.md:408",
+      "lesson": "Wikipedia AI-writing-pattern humanizer should be a mandatory gate before GHL CSV social copy export \u2014 removes 7+ detectable AI patterns",
+      "band": "COGNITIVE",
+      "subsystem": "distribution",
+      "status": "pending",
+      "recommended_scopes": []
+    },
+    {
+      "source": "/Users/breydentaylor/.claude/projects/-Users-breydentaylor-operationTorque/memory/MEMORY.md:115",
+      "lesson": "Tutorial simulations work best as Claude-narrated demonstrations, not student-written exercises \u2014 when the infrastructure can run code live, the student's job shifts from implementing to understanding",
+      "band": "COGNITIVE",
+      "subsystem": "cgg",
+      "status": "extracted",
+      "recommended_scopes": []
+    },
+    {
+      "source": "/Users/breydentaylor/.claude/projects/-Users-breydentaylor-operationTorque/memory/MEMORY.md:170",
+      "lesson": "PostToolUse hook on ExitPlanMode provides a deterministic, synchronous CPR extraction point that survives session boundaries \u2014 no background agents needed for the extraction step",
+      "band": "COGNITIVE",
+      "subsystem": "cgg",
+      "status": "enrichment_eligible",
+      "recommended_scopes": []
+    }
+  ],
+  "zone": {
+    "name": "operationTorque-estate",
+    "bands": [
+      "PRIMITIVE",
+      "COGNITIVE",
+      "SOCIAL",
+      "PRESTIGE"
+    ],
+    "muffling_per_hop": 5
+  },
+  "rules_in_force": {
+    "project": {
+      "file": "/Users/breydentaylor/operationTorque/CLAUDE.md",
+      "lines": 884,
+      "bytes": 74757
+    },
+    "global": {
+      "file": "/Users/breydentaylor/.claude/CLAUDE.md",
+      "lines": 116,
+      "bytes": 8089
+    }
+  },
+  "counts": {
+    "active_signals": 0,
+    "active_warrants": 0,
+    "pending_cogprs": 8,
+    "resolved_signals_since_last_tic": 0
+  }
+}

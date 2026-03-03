@@ -1,0 +1,15 @@
+# Federal Register API results (ephemeral, not tracked)
+infrastructure/federal-register/results/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# OS
+.DS_Store
+
+# Temp
+*.tmp
+*.swp
