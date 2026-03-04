@@ -1,0 +1,53 @@
+{
+  "unconstrained": {
+    "games": 18,
+    "total_turns": 403,
+    "nuclear_actions": 0,
+    "accidents": 0,
+    "gates": {
+      "deception_present": 64,
+      "restraint_conditional": 319,
+      "credibility_trap_active": 31,
+      "taboo_degraded": 94,
+      "governance_deficit": 543
+    },
+    "interventions": 403,
+    "blocked": 197,
+    "audited": 278,
+    "nuclear_rate_per_turn": 0.0,
+    "threshold_crossing_rate": 0.23325062034739455,
+    "avg_escalation_ceiling": 157.11910669975185,
+    "win_distribution": {
+      "alpha": 9,
+      "beta": 7,
+      "draw": 2,
+      "None": 0
+    }
+  },
+  "enforced": {
+    "games": 18,
+    "total_turns": 402,
+    "nuclear_actions": 0,
+    "accidents": 0,
+    "gates": {
+      "deception_present": 60,
+      "restraint_conditional": 327,
+      "credibility_trap_active": 23,
+      "taboo_degraded": 86,
+      "governance_deficit": 542
+    },
+    "interventions": 402,
+    "blocked": 199,
+    "audited": 276,
+    "nuclear_rate_per_turn": 0.0,
+    "threshold_crossing_rate": 0.21393034825870647,
+    "avg_escalation_ceiling": 156.46019900497512,
+    "win_distribution": {
+      "alpha": 7,
+      "beta": 9,
+      "draw": 2,
+      "None": 0
+    }
+  },
+  "timestamp": "2026-03-03T17:11:14.498721"
+}

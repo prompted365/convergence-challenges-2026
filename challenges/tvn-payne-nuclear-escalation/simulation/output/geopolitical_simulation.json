@@ -1,0 +1,111 @@
+{
+  "data_availability": {
+    "Executive Orders 2025-26": "AVAILABLE (243 EOs loaded)",
+    "Payne Paper (arXiv:2602.14740)": "AVAILABLE (analyzed)",
+    "312-Paper Corpus": "AVAILABLE (Governance as Infrastructure cluster)",
+    "Nuclear Threat Transcripts": "PARTIAL (from conversation: Trump, Putin, Kim, UN statements)",
+    "Climate Documentation": "NOT LOADED (need explicit upload)",
+    "May 2025 Baseline": "RECONSTRUCTED (from EO timeline: pre-14372)",
+    "March 2026 Current": "AVAILABLE (New START expired Feb 5, 2026)"
+  },
+  "state_mapping": {
+    "US_2026": {
+      "profile": "calculating_hegemon",
+      "rationale": "243 EOs, America First Arms Transfer, unilateral governance"
+    },
+    "US_May2025": {
+      "profile": "calculating_hegemon",
+      "rationale": "Early EO phase, governance infrastructure building"
+    },
+    "Russia": {
+      "profile": "high_risk_actor",
+      "rationale": "Nuclear signaling in Ukraine, 'all systems available' threats"
+    },
+    "China": {
+      "profile": "conditional_pacifist",
+      "rationale": "Rapid expansion but measured, restraint under pressure"
+    },
+    "Iran": {
+      "profile": "high_risk_actor",
+      "rationale": "Missile capabilities, nuclear program struck but persists"
+    },
+    "North_Korea": {
+      "profile": "high_risk_actor",
+      "rationale": "Frequent testing, unpredictable escalation"
+    }
+  },
+  "scenario": "New_START_Post_Expiration",
+  "results": {
+    "US_2026_vs_Russia": {
+      "UNCONSTRAINED": {
+        "nuclear_events": 0,
+        "strategic_events": 0,
+        "max_escalation": 400,
+        "entropy": 0.561,
+        "winner": "beta",
+        "turns": 15,
+        "final_territory": -0.094,
+        "governance_interventions": 15,
+        "taboo_crossings": 0
+      },
+      "ENFORCED": {
+        "nuclear_events": 0,
+        "strategic_events": 0,
+        "max_escalation": 400,
+        "entropy": 0.65,
+        "winner": "beta",
+        "turns": 15,
+        "final_territory": -0.412,
+        "governance_interventions": 15,
+        "taboo_crossings": 0
+      },
+      "ENFORCED_BROADCAST_TRUTH": {
+        "nuclear_events": 0,
+        "strategic_events": 0,
+        "max_escalation": 400,
+        "entropy": 0.561,
+        "winner": "alpha",
+        "turns": 15,
+        "final_territory": 0.582,
+        "governance_interventions": 15,
+        "taboo_crossings": 0
+      }
+    },
+    "US_May2025_vs_Russia": {
+      "UNCONSTRAINED": {
+        "nuclear_events": 0,
+        "strategic_events": 0,
+        "max_escalation": 400,
+        "entropy": 0.567,
+        "winner": "beta",
+        "turns": 15,
+        "final_territory": -0.006,
+        "governance_interventions": 15,
+        "taboo_crossings": 0
+      },
+      "ENFORCED": {
+        "nuclear_events": 0,
+        "strategic_events": 0,
+        "max_escalation": 400,
+        "entropy": 0.561,
+        "winner": "alpha",
+        "turns": 15,
+        "final_territory": 0.21,
+        "governance_interventions": 15,
+        "taboo_crossings": 0
+      },
+      "ENFORCED_BROADCAST_TRUTH": {
+        "nuclear_events": 0,
+        "strategic_events": 0,
+        "max_escalation": 400,
+        "entropy": 0.469,
+        "winner": "beta",
+        "turns": 15,
+        "final_territory": -0.09,
+        "governance_interventions": 15,
+        "taboo_crossings": 0
+      }
+    }
+  },
+  "timestamp": "2026-03-03T19:12:39.840247"
+}

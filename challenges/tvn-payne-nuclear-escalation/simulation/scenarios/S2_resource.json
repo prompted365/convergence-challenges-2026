@@ -1,0 +1,1 @@
+{"name": "Strategic Resource Race", "version": "v7_resource", "temporal_frame": "deadline", "max_turns": 15, "deadline": 15, "starting_balance": -0.3, "existential": false, "payne_analog": "v7_resource"}

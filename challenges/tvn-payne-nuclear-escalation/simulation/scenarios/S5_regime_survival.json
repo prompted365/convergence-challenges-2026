@@ -1,0 +1,1 @@
+{"name": "Regime Survival", "version": "v9_regime_survival", "temporal_frame": "deadline", "max_turns": 20, "deadline": 20, "starting_balance": -1.0, "existential": true, "payne_analog": "v9_regime_survival"}

@@ -1,0 +1,36 @@
+{
+  "acoustic_unconstrained": {
+    "label": "ACOUSTIC_UNCONST",
+    "games": 18,
+    "total_turns": 403,
+    "nuclear_events": 0,
+    "acoustic_events": 0,
+    "acoustic_strategic": 0,
+    "gates": {
+      "deception_present": 53,
+      "restraint_conditional": 328,
+      "credibility_trap_active": 32,
+      "taboo_degraded": 85,
+      "governance_deficit": 543
+    },
+    "interventions": 403,
+    "blocked": 203
+  },
+  "acoustic_enforced": {
+    "label": "ACOUSTIC_ENFORCED",
+    "games": 18,
+    "total_turns": 403,
+    "nuclear_events": 0,
+    "acoustic_events": 0,
+    "acoustic_strategic": 0,
+    "gates": {
+      "deception_present": 49,
+      "restraint_conditional": 329,
+      "credibility_trap_active": 42,
+      "taboo_degraded": 90,
+      "governance_deficit": 543
+    },
+    "interventions": 403,
+    "blocked": 189
+  }
+}

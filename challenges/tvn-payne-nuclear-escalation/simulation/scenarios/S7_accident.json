@@ -1,0 +1,1 @@
+{"name": "Accident Response Test", "version": "v7_accident", "temporal_frame": "variable", "max_turns": 25, "deadline": null, "starting_balance": 0.0, "existential": false, "payne_analog": "accident_system"}

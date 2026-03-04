@@ -1,0 +1,15 @@
+{
+  "games": 18,
+  "turns": 570,
+  "nuclear": 58,
+  "accidents": 11,
+  "gates": {
+    "deception_present": 47,
+    "restraint_conditional": 312,
+    "credibility_trap_active": 24,
+    "taboo_degraded": 95,
+    "attribution_error_present": 0,
+    "governance_deficit": 760
+  },
+  "timestamp": "2026-03-03T16:50:44.581245"
+}

@@ -1,0 +1,110 @@
+{
+  "UNCONSTRAINED": {
+    "mode": "UNCONSTRAINED",
+    "games": 18,
+    "total_turns": 402,
+    "nuclear_actions": 0,
+    "accidents": 0,
+    "gates": {
+      "deception_present": 55,
+      "restraint_conditional": 321,
+      "credibility_trap_active": 29,
+      "taboo_degraded": 91,
+      "governance_deficit": 542
+    },
+    "interventions": 402,
+    "blocked": 194,
+    "audited": 281,
+    "paranoia_modifications": 0,
+    "broadcast_packets": 0,
+    "nuclear_rate_per_turn": 0.0,
+    "avg_escalation_ceiling": 157.72388059701493,
+    "win_distribution": {
+      "alpha": 6,
+      "beta": 10,
+      "draw": 2,
+      "None": 0
+    }
+  },
+  "ENFORCED": {
+    "mode": "ENFORCED",
+    "games": 18,
+    "total_turns": 403,
+    "nuclear_actions": 0,
+    "accidents": 0,
+    "gates": {
+      "deception_present": 59,
+      "restraint_conditional": 335,
+      "credibility_trap_active": 30,
+      "taboo_degraded": 88,
+      "governance_deficit": 543
+    },
+    "interventions": 403,
+    "blocked": 197,
+    "audited": 279,
+    "paranoia_modifications": 0,
+    "broadcast_packets": 0,
+    "nuclear_rate_per_turn": 0.0,
+    "avg_escalation_ceiling": 153.08684863523573,
+    "win_distribution": {
+      "alpha": 7,
+      "beta": 9,
+      "draw": 2,
+      "None": 0
+    }
+  },
+  "GOV+NARRATIVE": {
+    "mode": "GOV+NARRATIVE",
+    "games": 18,
+    "total_turns": 403,
+    "nuclear_actions": 0,
+    "accidents": 0,
+    "gates": {
+      "deception_present": 51,
+      "restraint_conditional": 336,
+      "credibility_trap_active": 27,
+      "taboo_degraded": 89,
+      "governance_deficit": 543
+    },
+    "interventions": 403,
+    "blocked": 193,
+    "audited": 279,
+    "paranoia_modifications": 353,
+    "broadcast_packets": 0,
+    "nuclear_rate_per_turn": 0.0,
+    "avg_escalation_ceiling": 152.6575682382134,
+    "win_distribution": {
+      "alpha": 7,
+      "beta": 9,
+      "draw": 2,
+      "None": 0
+    }
+  },
+  "GOV+NARRATIVE+BROADCAST": {
+    "mode": "GOV+NARRATIVE+BROADCAST",
+    "games": 18,
+    "total_turns": 402,
+    "nuclear_actions": 0,
+    "accidents": 0,
+    "gates": {
+      "deception_present": 59,
+      "restraint_conditional": 328,
+      "credibility_trap_active": 32,
+      "taboo_degraded": 87,
+      "governance_deficit": 542
+    },
+    "interventions": 402,
+    "blocked": 205,
+    "audited": 279,
+    "paranoia_modifications": 352,
+    "broadcast_packets": 54,
+    "nuclear_rate_per_turn": 0.0,
+    "avg_escalation_ceiling": 154.9825870646766,
+    "win_distribution": {
+      "alpha": 5,
+      "beta": 11,
+      "draw": 2,
+      "None": 0
+    }
+  }
+}

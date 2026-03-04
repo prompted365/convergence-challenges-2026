@@ -1,0 +1,94 @@
+{
+  "GOV ONLY": {
+    "mode": "GOV ONLY",
+    "games": 18,
+    "total_turns": 403,
+    "nuclear_actions": 0,
+    "accidents": 0,
+    "gates": {
+      "deception_present": 61,
+      "restraint_conditional": 343,
+      "credibility_trap_active": 33,
+      "taboo_degraded": 96,
+      "governance_deficit": 543
+    },
+    "interventions": 403,
+    "blocked": 188,
+    "audited": 278,
+    "paranoia_modifications": 0,
+    "broadcast_stats": {},
+    "nuclear_rate_per_turn": 0.0,
+    "avg_escalation_ceiling": 151.59305210918114,
+    "win_distribution": {
+      "alpha": 7,
+      "beta": 9,
+      "draw": 2,
+      "None": 0
+    }
+  },
+  "GOV+NARRATIVE": {
+    "mode": "GOV+NARRATIVE",
+    "games": 18,
+    "total_turns": 402,
+    "nuclear_actions": 0,
+    "accidents": 0,
+    "gates": {
+      "deception_present": 59,
+      "restraint_conditional": 314,
+      "credibility_trap_active": 32,
+      "taboo_degraded": 98,
+      "governance_deficit": 542
+    },
+    "interventions": 402,
+    "blocked": 185,
+    "audited": 278,
+    "paranoia_modifications": 352,
+    "broadcast_stats": {},
+    "nuclear_rate_per_turn": 0.0,
+    "avg_escalation_ceiling": 158.63681592039802,
+    "win_distribution": {
+      "alpha": 9,
+      "beta": 7,
+      "draw": 2,
+      "None": 0
+    }
+  },
+  "GOV+BROADCAST": {
+    "mode": "GOV+BROADCAST",
+    "games": 18,
+    "total_turns": 406,
+    "nuclear_actions": 0,
+    "accidents": 0,
+    "gates": {
+      "deception_present": 46,
+      "restraint_conditional": 328,
+      "credibility_trap_active": 36,
+      "taboo_degraded": 88,
+      "governance_deficit": 546
+    },
+    "interventions": 406,
+    "blocked": 189,
+    "audited": 284,
+    "paranoia_modifications": 0,
+    "broadcast_stats": {
+      "total_packets": 120,
+      "broadcast_mode": "ON",
+      "broadcast_truth": "STRICT",
+      "latency_mean": 0.975,
+      "latency_max": 2,
+      "drop_rate": 0.0,
+      "semantic_divergence_mean": 0.0,
+      "unique_packet_hashes": 120,
+      "all_packets_have_uncertainty_footer": true,
+      "hidden_channels_detected": false
+    },
+    "nuclear_rate_per_turn": 0.0,
+    "avg_escalation_ceiling": 153.36206896551724,
+    "win_distribution": {
+      "alpha": 9,
+      "beta": 7,
+      "draw": 2,
+      "None": 0
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "governance_only": {
+    "label": "GOVERNANCE ONLY",
+    "games": 18,
+    "total_turns": 405,
+    "nuclear_actions": 0,
+    "accidents": 0,
+    "gates": {
+      "deception_present": 61,
+      "restraint_conditional": 313,
+      "credibility_trap_active": 33,
+      "taboo_degraded": 93,
+      "governance_deficit": 545
+    },
+    "interventions": 405,
+    "blocked": 194,
+    "audited": 279,
+    "paranoia_modifications": 0,
+    "nuclear_rate_per_turn": 0.0,
+    "threshold_crossing_rate": 0.22962962962962963,
+    "avg_escalation_ceiling": 161.58271604938273,
+    "win_distribution": {
+      "alpha": 6,
+      "beta": 10,
+      "draw": 2,
+      "None": 0
+    }
+  },
+  "governance_narrative": {
+    "label": "GOVERNANCE + NARRATIVE",
+    "games": 18,
+    "total_turns": 402,
+    "nuclear_actions": 0,
+    "accidents": 0,
+    "gates": {
+      "deception_present": 62,
+      "restraint_conditional": 316,
+      "credibility_trap_active": 30,
+      "taboo_degraded": 93,
+      "governance_deficit": 542
+    },
+    "interventions": 402,
+    "blocked": 197,
+    "audited": 276,
+    "paranoia_modifications": 704,
+    "nuclear_rate_per_turn": 0.0,
+    "threshold_crossing_rate": 0.23134328358208955,
+    "avg_escalation_ceiling": 159.33830845771143,
+    "win_distribution": {
+      "alpha": 10,
+      "beta": 6,
+      "draw": 2,
+      "None": 0
+    }
+  },
+  "timestamp": "2026-03-03T17:36:46.905763"
+}
