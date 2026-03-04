@@ -221,4 +221,6 @@ Each entry follows `stakeholder@1` schema. See `templates/stakeholder-template.j
 
 ---
 
+**License:** [PolyForm Noncommercial 1.0.0](LICENSE.md) — free for personal, research, and noncommercial use. Commercial use requires a separate license agreement.
+
 *Private research estate. Open to challenge submissions, incident reports, collaboration, and review requests.*

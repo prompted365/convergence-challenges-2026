@@ -242,4 +242,6 @@ Breyden Taylor / Prompted LLC — February–March 2026
 
 ## License
 
-MIT
+PolyForm Noncommercial License 1.0.0 — see [LICENSE.md](../../LICENSE.md)
+
+Commercial use requires a separate license agreement. Contact: breyden@prompted.community
