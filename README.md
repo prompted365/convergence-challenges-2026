@@ -1,140 +1,168 @@
 # Convergence Challenges
 
-**Published an AI failure? Prove the fix doesn't exist. We'll prove it does.**
+**Published an AI failure? Discovered a real-world incident? Prove the fix doesn't exist. We'll prove it does.**
 
-[![Challenges](https://img.shields.io/badge/challenges-2_completed-brightgreen)]()
-[![Tests](https://img.shields.io/badge/tests-103_passing-brightgreen)]()
+[![Challenges](https://img.shields.io/badge/challenges-6_threads-brightgreen)]()
+[![Tests](https://img.shields.io/badge/tests-154_passing-brightgreen)]()
 [![Gate Rate](https://img.shields.io/badge/gate_rate-89%25-blue)]()
 [![Verdict](https://img.shields.io/badge/verdict-DETERMINISTIC-blueviolet)]()
 
 ---
 
-## The Arena
+## The Solutions Loom
 
-Every published AI failure paper claims a gap. We build a harness, feed adversarial scenarios through a physics-layer constraint stack, and assert that the failure mode is detected **deterministically** — not probabilistically, not with prompt engineering, not with RLHF hope.
+Challenges are threads in a loom — not items on a kanban board. They interconnect, feed each other, carry relative success states, and aren't limited to neatly-scoped paper responses.
+
+An **incite** is the entry point: a published paper, a real-world incident, an emergent pattern, or a community contribution. Each incite starts a thread. Threads weave through a shared archetype space, revealing where the constraint stack holds and where gaps exist.
 
 The constraint stack is [operationTorque](https://github.com/prompted365/operationTorque) — a multi-layer enforcement architecture running three detection bridges (lexical pattern matching, 14D amplitude surveillance, and intent classification) against 14 civilization-scale archetypes compiled from 5,000 years of documented human failure.
 
-If your paper found a failure mode we can't catch, we want to know.
+If your paper found a failure mode we can't catch — or your incident revealed a gap we haven't addressed — we want to know.
 
 ---
 
 ## Scorecard
 
-| Challenge | Paper | Tests | Gates | Verdict | Status |
-|-----------|-------|-------|-------|---------|--------|
-| [TVN-Payne Nuclear Escalation](challenges/tvn-payne-nuclear-escalation/) | Payne (arXiv:2602.14740) | 40/40 | 19/21 (90%) | **DETERMINISTIC** | COMPLETE |
-| [Agents of Chaos](challenges/agents-of-chaos/) | Shapira et al. (arXiv:2602.20021v1) | 63/63 | 29/33 (88%) | **DETERMINISTIC** | COMPLETE |
+### Constraint Harness Results (paper challenges)
+
+| Challenge | Incite | Tests | Gates | Verdict | Stream |
+|-----------|--------|-------|-------|---------|--------|
+| [TVN-Payne Nuclear Escalation](challenges/tvn-payne-nuclear-escalation/) | paper | 40/40 | 19/21 (90%) | **DETERMINISTIC** | `deterministic` |
+| [Agents of Chaos](challenges/agents-of-chaos/) | paper | 63/63 | 29/33 (88%) | **DETERMINISTIC** | `deterministic` |
 
 **Combined:** 103 tests. 48/54 gates (89%). 17/18 scenarios produce enforcement convergence.
 
+### Forensic Detection Results (incident challenges)
+
+| Challenge | Incite | Base Kit Tests | Expansion Layers | Review Status | Stream |
+|-----------|--------|---------------|-----------------|---------------|--------|
+| [UAT-8616 selfcheck-core](challenges/uat-8616-selfcheck-core/) | incident | 51/51 | 7 experimental | **Independent review requested** | `ongoing` |
+
+> **Disclosure:** UAT-8616 is tied to active exploitation of Cisco infrastructure (CVE-2026-20127, CVE-2025-20393, both CVSS 10.0). The base forensic detection kit is published for review — **not recommended for production** until independently validated. See [DISCLOSURE.md](challenges/uat-8616-selfcheck-core/DISCLOSURE.md).
+
+### Incited (awaiting harness)
+
+| Challenge | Incite | Expected Archetypes | Upstream Edge |
+|-----------|--------|-------------------|---------------|
+| [Alignment Faking](challenges/alignment-faking/) | paper | `cunning_triumph` | ← AoC |
+| [Scheming Reasoning](challenges/scheming-reasoning/) | paper | `cunning_triumph`, `empire_cycle` | — |
+| [Multi-Agent Safety](challenges/multi-agent-safety/) | paper | `empire_cycle`, `catastrophe_rebuild` | — |
+
 ### Invariant Discovery
 
-The same 14 archetypes catch both nuclear escalation and social engineering because they're eigenvectors of failure space — the psychological patterns are scale-invariant:
+The same 14 archetypes catch nuclear escalation, social engineering, and (hypothesized) infrastructure compromise because they're eigenvectors of failure space — the psychological patterns are scale-invariant:
 
-| Archetype | Nuclear (Payne) | Social Engineering (AoC) |
-|-----------|----------------|--------------------------|
-| `cautionary_fall` | Pride-driven escalation | Guilt-driven concessions |
-| `cunning_triumph` | Strategic bluffing | Authority spoofing |
-| `greed_backfire` | Resource extraction | Data exfiltration |
-| `empire_cycle` | Sovereignty claims | Governance injection |
-| `catastrophe_rebuild` | Nuclear aftermath | Disproportionate destruction |
+| Archetype | Nuclear (Payne) | Social Engineering (AoC) | Infrastructure (UAT-8616) |
+|-----------|----------------|--------------------------|---------------------------|
+| `cautionary_fall` | Pride-driven escalation | Guilt-driven concessions | Trust in clean-looking devices |
+| `cunning_triumph` | Strategic bluffing | Authority spoofing | Firmware rollback-and-restore |
+| `greed_backfire` | Resource extraction | Data exfiltration | Covert tunnel exfiltration |
+| `empire_cycle` | Sovereignty claims | Governance injection | Network fabric control |
+| `catastrophe_rebuild` | Nuclear aftermath | Disproportionate destruction | Incident response cycles |
 
 ---
 
-## Challenge Pipeline
+## Stream States
+
+Challenges flow through stream states rather than a linear pipeline. Threads can loop, go dormant, or remain ongoing.
 
 ```
-SUBMITTED ──> CLAIMED ──> HARNESS BUILT ──> DETERMINISTIC ──> PUBLISHED
-    |             |             |                 |               |
-  Paper       Someone       Tests pass       All gates        Response
- identified    picks it     against oT        fire or        paper +
- as target     up           constraint       correct         outreach
-                            stack            negatives        sent
-                                             documented
+              ┌──────────┐
+              │  incited  │ ← paper, incident, pattern, or community
+              └────┬─────┘
+                   │
+              ┌────▼─────┐
+              │  claimed  │
+              └────┬─────┘
+                   │
+              ┌────▼──────┐     ┌────────────┐
+              │ harnessed  │────>│ gap_found  │  ← valuable
+              └────┬──────┘     └────────────┘
+                   │
+            ┌──────▼────────┐
+            │ deterministic  │
+            └──────┬────────┘
+                   │
+              ┌────▼──────┐     ┌──────────┐
+              │ published  │    │  ongoing  │  ← no neat closure
+              └───────────┘     └──────────┘
+                                ┌──────────┐
+                                │  dormant  │  ← awaiting upstream
+                                └──────────┘
 ```
 
-### Board
-
-See **[CHALLENGES.md](CHALLENGES.md)** for the full kanban board with every challenge's status, assignee, and progress notes.
+See **[CHALLENGES.md](CHALLENGES.md)** for the full stream-state board and **[LOOM.md](LOOM.md)** for the woven view with archetype warp, context weft, and gap map.
 
 ---
 
 ## Submit a Challenge
 
-**Found a paper that breaks AI agents? Think you've found a failure mode we can't catch?**
+**Found a paper that breaks AI agents? Discovered an active incident? Identified a recurring pattern?**
 
-Three ways in:
+Four ways in:
 
 ### 1. Open an Issue (Easiest)
-
-Use the [Challenge Submission](../../issues/new?template=challenge-submission.yml) template. Point us at the paper, describe the failure mode, and we'll build the harness.
+Use the [Challenge Submission](../../issues/new?template=challenge-submission.yml) template for papers, or the [Incident Report](../../issues/new?template=incident-report.yml) template for real-world events.
 
 ### 2. Submit a PR (Intermediate)
-
-Fork, create `challenges/<your-challenge-name>/`, add your analysis or even a partial harness. PRs automatically get labeled `framework-submission: unclaimed` until someone picks it up.
+Fork, create `challenges/<your-challenge-name>/`, add an `incite.md` with YAML frontmatter. PRs automatically get labeled by incite type.
 
 ### 3. Build the Whole Harness (Expert)
+Follow the [contribution guide](CONTRIBUTING.md). Map failure modes to enforcement lenses, write adversarial payloads, assert gate activations.
 
-Follow the [contribution guide](CONTRIBUTING.md). Map failure modes to enforcement lenses, write adversarial payloads, assert gate activations. If it passes — or if it **doesn't** and reveals a real gap — that's a win either way.
+### 4. Weave Context (Analytical)
+Found a connection between existing challenges? Add a `context.md` that documents the edge — upstream, downstream, archetype bridges.
 
 ---
 
-## What Makes a Good Challenge
+## What Makes a Good Incite
 
-The best challenges have:
+The best incites have:
 
-- **A published paper** with specific, reproducible failure cases (not vibes)
-- **Adversarial payloads** — the actual text/scenarios that caused the failure
-- **Clear failure taxonomy** — what went wrong, categorized
+- **A clear catalyst** — published paper with reproducible failures, active CVEs with confirmed exploitation, or documented pattern across incidents
+- **Adversarial payloads** — the actual text/scenarios/IOCs that demonstrate the failure
+- **Failure taxonomy** — what went wrong, categorized and named
 - **Testable assertions** — "the system should detect X" or "the system should block Y"
+- **Context edges** — how this relates to existing challenges (optional but valuable)
 
-We're not interested in "AI said something dumb once." We're interested in systematic failure modes that represent engineering gaps in constraint infrastructure.
-
-### Themes We're Watching
-
-The challenge pipeline rotates through narrative themes as challenges accumulate. Some we're actively hunting:
-
-- **Bounty Board** — known failure papers with no published constraint response
-- **Trojan Horse** — attacks that disguise themselves as benign (nested social engineering, governance injection, indirect prompt attacks)
-- **Scale Invariance** — same failure pattern at individual, organizational, and civilizational scales
-- **Provider Blind Spots** — failures specific to one provider's alignment approach that a physics-layer stack catches generically
-- **The Tootsie Pop** — how many layers of wrapping until you hit the failure core? (Multi-stage attacks, Russian doll scenarios)
+For incident-type incites, clear **disclosure notices** are required: CVEs, directives, verification status, and regulatory review posture. See [the UAT-8616 DISCLOSURE.md](challenges/uat-8616-selfcheck-core/DISCLOSURE.md) for the template.
 
 ---
 
 ## Architecture (How It Works)
 
-Every challenge harness exercises the same three detection bridges:
+### Constraint Harness (paper challenges)
 
-### Bridge 1 — Harpoon (Lexical Physics)
-Aho-Corasick term matching against 14 archetypes (190 term-to-archetype mappings) and structured priors (920+ entries from Aesop, The Prophet, civilization milestones). Returns archetype family, confidence, and suppression state.
+Every paper challenge harness exercises three detection bridges:
 
-### Bridge 2 — Naive Surveillance (Amplitude Perception)
-14D archetype amplitude decomposition via `decompose()` and `observe()`. Rolling 20-observation baseline with z-score spike detection. Regulation state machine (DORMANT, SENSITIZED, HABITUATED, SATURATED) prevents alert fatigue.
+**Bridge 1 — Harpoon (Lexical Physics):** Aho-Corasick term matching against 14 archetypes (190 term-to-archetype mappings) and structured priors (920+ entries from Aesop, The Prophet, civilization milestones).
 
-### Bridge 3 — Intent Gate (Governance Classification)
-`classify_intent()` three-tuple: content x action x audience. Blocks PRESTIGE-optimizing publication while allowing COGNITIVE analysis. The same content is allowed for discussion but blocked for external distribution.
+**Bridge 2 — Naive Surveillance (Amplitude Perception):** 14D archetype amplitude decomposition via `decompose()` and `observe()`. Rolling 20-observation baseline with z-score spike detection.
 
-### Enforcement Lenses
+**Bridge 3 — Intent Gate (Governance Classification):** `classify_intent()` three-tuple: content x action x audience. Blocks PRESTIGE-optimizing publication while allowing COGNITIVE analysis.
 
-Each challenge defines enforcement lenses that map paper-specific failure categories to operationTorque subsystems. When 3+ lenses from different constraint layers fire simultaneously, the system demonstrates **enforcement convergence** — multi-layer detection of a single attack pattern.
+### Forensic Detection (incident challenges)
+
+Incident challenges may implement their own detection architecture. UAT-8616 selfcheck-core uses a 13-layer forensic detection stack with stealth-normalized I/O. See the [challenge README](challenges/uat-8616-selfcheck-core/README.md) and [DISCLOSURE.md](challenges/uat-8616-selfcheck-core/DISCLOSURE.md) for architecture and verification status.
 
 ---
 
 ## Running Harnesses
 
 ```bash
-# From operationTorque repo root (harnesses import upstream infrastructure)
+# From operationTorque repo root
 
 # TVN-Payne: Nuclear escalation — 40 tests, ~0.63s
 python3 -m pytest vendor/convergenceChallengesGeoPolitical_2026/challenges/tvn-payne-nuclear-escalation/harness/ -v
 
 # Agents of Chaos: Social engineering — 63 tests, ~1.5s
 python3 -m pytest vendor/convergenceChallengesGeoPolitical_2026/challenges/agents-of-chaos/harness/ -v
+
+# UAT-8616: Forensic detection — 51 tests
+python3 vendor/convergenceChallengesGeoPolitical_2026/challenges/uat-8616-selfcheck-core/test_harness.py
 ```
 
-Requirements: Python 3.10+, numpy, pytest. No external services — all detection runs locally against compiled pattern files.
+Requirements: Python 3.10+, numpy, pytest. No external services — all detection runs locally.
 
 ---
 
@@ -143,25 +171,43 @@ Requirements: Python 3.10+, numpy, pytest. No external services — all detectio
 ```
 challenges/
   tvn-payne-nuclear-escalation/
-    harness/          <- Constraint stress test (40 tests, pytest)
-    simulation/       <- Mogul's nuclear escalation simulation engine
-    output/           <- Traces, conformations, metadata
-  agents-of-chaos/
-    harness/          <- Constraint stress test (63 tests, pytest)
-    docs/             <- Response paper, projection, outreach emails
+    incite.md             <- Catalyst, stream state, edges
+    context.md            <- Upstream/downstream connections
+    milestones.md         <- Progression, takeaways
+    harness/              <- Constraint stress test (40 tests)
+    simulation/           <- Mogul's escalation engine
+    output/               <- Traces, conformations
 
-stakeholders/         <- Granular contact registry (authors, agencies, labs)
-infrastructure/       <- Federal Register API, monitoring scripts
-templates/            <- Challenge + stakeholder entry templates
+  agents-of-chaos/
+    incite.md / context.md / milestones.md
+    harness/              <- Constraint stress test (63 tests)
+    docs/                 <- Response paper, outreach
+
+  uat-8616-selfcheck-core/
+    DISCLOSURE.md         <- Verification status, review posture
+    incite.md / context.md / milestones.md
+    toolkit/              <- Rust crate — base kit (layers 0-5b) + expansions (6-12)
+    expansions/           <- Theoretical docs, not in review scope
+    intelligence/         <- Threat maps, convergent analysis
+    test_harness.py       <- Python mirror tests (51 tests)
+    README.md             <- Full technical documentation
+
+  alignment-faking/       <- Incited, unclaimed
+  scheming-reasoning/     <- Incited, unclaimed
+  multi-agent-safety/     <- Incited, unclaimed
+
+LOOM.md                   <- Woven view: archetype warp, context weft, gap map
+CHALLENGES.md             <- Stream-state board
+stakeholders/             <- Contact registry (authors, agencies, labs)
+infrastructure/           <- Federal Register API, monitoring
+templates/                <- Challenge + incident templates
 ```
 
 ---
 
 ## Stakeholder Library
 
-Structured, granular registry of all parties across challenges — individual authors with affiliations and contact methods, government agencies with jurisdiction and mandate, research labs, media contacts.
-
-**Current:** 41 authors | 42 agencies/institutions | 7 JSONL files
+Structured, granular registry of all parties across challenges — individual authors, government agencies, research labs, media contacts.
 
 Each entry follows `stakeholder@1` schema. See `templates/stakeholder-template.jsonl`.
 
@@ -175,4 +221,4 @@ Each entry follows `stakeholder@1` schema. See `templates/stakeholder-template.j
 
 ---
 
-*Private research estate. Open to challenge submissions, collaboration, and review requests.*
+*Private research estate. Open to challenge submissions, incident reports, collaboration, and review requests.*

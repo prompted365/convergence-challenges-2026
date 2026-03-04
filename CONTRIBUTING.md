@@ -1,22 +1,12 @@
-# Contributing a Challenge
+# Contributing to the Solutions Loom
 
-You found a published paper documenting an AI failure mode. You want to see if a physics-layer constraint stack catches it. Here's how.
-
----
-
-## The Lifecycle
-
-Every challenge follows this pipeline:
-
-```
-SUBMITTED ──> CLAIMED ──> HARNESS BUILT ──> DETERMINISTIC ──> PUBLISHED
-```
-
-You can enter at any stage. Paper identification is valuable. A full harness is a trophy.
+Challenges are threads in a loom. You can start a new thread, weave context between existing threads, or strengthen a thread by building its harness. Every contribution type is valuable.
 
 ---
 
-## Option 1: Submit a Paper (10 minutes)
+## Contribution Paths
+
+### 1. Submit a Paper Incite (10 minutes)
 
 Open a [Challenge Submission](../../issues/new?template=challenge-submission.yml) issue. Tell us:
 
@@ -26,23 +16,62 @@ Open a [Challenge Submission](../../issues/new?template=challenge-submission.yml
 
 That's it. Someone will claim it and build the harness.
 
-**What makes a good submission:**
+**What makes a good paper incite:**
 - Specific, reproducible failures (not "AI was wrong once")
 - Published and peer-reviewed (or credible preprint)
 - Clear failure taxonomy — the paper categorizes what went wrong
 - Adversarial payloads included (the actual attack text)
 
----
+### 2. Report an Incident (15 minutes)
 
-## Option 2: Map Failure Modes (1-2 hours)
+Open an [Incident Report](../../issues/new?template=incident-report.yml) issue. Provide:
 
-If you understand the operationTorque architecture, you can map the paper's failure modes to enforcement lenses. This is the analytical step between "paper found" and "harness built."
+1. **CVEs / advisory IDs** — formal identifiers
+2. **What happened** — systems affected, blast radius, failure modes
+3. **IOCs or forensic artifacts** — if available
 
-Create `challenges/<your-challenge-name>/` and add a mapping document:
+Incident-type challenges carry disclosure notices and may have different metrics than paper challenges (forensic detection layers instead of archetype gate rates). See the [UAT-8616 DISCLOSURE.md](challenges/uat-8616-selfcheck-core/DISCLOSURE.md) for the disclosure template.
+
+**Disclosure requirements for incidents:**
+- CVEs and CVSS scores
+- Relevant emergency directives
+- Coordinating agencies
+- Verification status (independent review requested / completed / not applicable)
+- Clear separation between proven detection and experimental layers
+
+### 3. Weave Context (30 minutes)
+
+Found a connection between existing challenges? Add a `context.md` that documents the edge.
+
+Create or update `challenges/<challenge-name>/context.md`:
 
 ```markdown
-# [Paper Title] — Enforcement Lens Mapping
+---
+challenge_id: <challenge-slug>
+---
 
+# Context — [Challenge Name]
+
+## Upstream Edges
+### ← [Source Challenge] (STATUS)
+**Edge type:** [scale invariance | infrastructure patterns | deception detection | ...]
+**Claim:** [What the connection is]
+**Status:** VALIDATED | HYPOTHESIS | SUBMITTED | BROKEN
+```
+
+Context edges are how the loom reveals patterns. A VALIDATED edge between two challenges (confirmed by passing harnesses on both ends) is a discovery. A BROKEN edge (tested and disproved) is equally valuable.
+
+### 4. Identify a Pattern (1 hour)
+
+See the same failure mode recurring across multiple incidents or papers? That's a `pattern` incite. Create `challenges/<pattern-name>/incite.md` with `type: pattern` in the frontmatter.
+
+Pattern incites don't require a single source paper or CVE — they require evidence of recurrence. Document the instances, name the pattern, and hypothesize which archetypes should fire.
+
+### 5. Map Failure Modes (1-2 hours)
+
+If you understand the operationTorque architecture, map a paper's failure modes to enforcement lenses:
+
+```markdown
 | Failure Mode | Primary Lens | Detection Bridge | Expected Archetypes |
 |-------------|-------------|-----------------|---------------------|
 | [mode 1]    | L[N] [Name] | Bridge [1/2/3]  | archetype_name      |
@@ -53,20 +82,21 @@ Each failure mode should map to:
 - **A detection bridge** (which of the 3 detection layers should catch it)
 - **Expected archetypes** (which civilization-scale patterns should activate)
 
-See `challenges/agents-of-chaos/harness/aoc_lenses.py` for a reference implementation of 8 enforcement lenses.
+See `challenges/agents-of-chaos/harness/aoc_lenses.py` for a reference implementation.
 
----
-
-## Option 3: Build the Full Harness (4-8 hours)
+### 6. Build the Full Harness (4-8 hours)
 
 This is the real thing. You're building a pytest harness that feeds adversarial scenarios through the constraint stack and asserts deterministic detection.
 
-### File Structure
+#### File Structure
 
 ```
 challenges/<challenge-name>/
+  incite.md                  <- Catalyst, stream state, edges
+  context.md                 <- Upstream/downstream connections
+  milestones.md              <- Progression, takeaways
   harness/
-    conftest.py              <- pytest fixtures (copy from existing challenge)
+    conftest.py              <- pytest fixtures
     <name>_lenses.py         <- Enforcement lens definitions
     scenarios.py             <- Adversarial scenarios with payloads
     constraint_runner.py     <- 3-bridge detection pipeline
@@ -77,11 +107,9 @@ challenges/<challenge-name>/
   output/
     traces/
       tournament-full-trace.json
-    metadata/
-      test-run-metadata.json
 ```
 
-### Step by Step
+#### Step by Step
 
 **1. Define enforcement lenses** (`<name>_lenses.py`)
 
@@ -134,31 +162,32 @@ The runner feeds each payload through 3 bridges:
 2. `surveillance.decompose()` + `observe()` — amplitude surveillance
 3. `surveillance.classify_intent()` — intent classification
 
-Then checks which enforcement lenses activate based on the results.
+**4. Write tests and document gate misses**
 
-**4. Write tests**
-
-Per-scenario tests assert:
-- Expected archetypes are detected
-- Expected gates fire
-- Pattern matches exist in the right archetype families
-
-Cross-scenario tests assert:
-- Enforcement convergence (3+ lenses from different layers)
-- Archetype universality (same archetypes catch diverse failure modes)
-- Intent gate correctness (analysis allowed, prestige blocked)
-
-**5. Document gate misses**
-
-Gate misses are as important as gate fires. For each gate that doesn't fire, document whether it's:
-- **Correct negative** — the system correctly distinguishes this from the pattern
-- **Real gap** — the system should have caught this and didn't
-
-If you find a real gap, label your PR with `gap-found`. That's a win.
+Gate misses are as important as gate fires. For each gate that doesn't fire, document whether it's a correct negative or a real gap. If you find a real gap, label your PR with `stream: gap_found`. That's a win.
 
 ---
 
-## Running Your Harness
+## Stream States
+
+Challenges flow through stream states rather than a linear pipeline:
+
+| State | Meaning | Who sets it |
+|-------|---------|-------------|
+| `incited` | Catalyst identified, challenge created | Submitter |
+| `claimed` | Someone working on it | Assignee |
+| `harnessed` | Tests passing | Harness builder |
+| `deterministic` | Verdict confirmed | Reviewer |
+| `published` | Response + outreach sent | Maintainer |
+| `gap_found` | Revealed a real gap (valuable) | Harness builder |
+| `dormant` | Awaiting upstream | Maintainer |
+| `ongoing` | Continuous monitoring, no neat closure | Maintainer |
+
+A challenge can move to `gap_found` from any active state. Finding a gap is not failure — it means the challenge did its job.
+
+---
+
+## Running Harnesses
 
 Harnesses run from the operationTorque repo root (they import upstream infrastructure):
 
@@ -173,16 +202,14 @@ python3 -m pytest vendor/convergenceChallengesGeoPolitical_2026/challenges/<your
 
 1. Fork this repo
 2. Create your challenge directory under `challenges/`
-3. Open a PR using the template — it auto-labels as `framework-submission: unclaimed`
-4. Fill in the harness checklist
-5. Include test results in the PR description
-
-The PR template tracks progress from submission through to deterministic verdict.
+3. Include at minimum an `incite.md` with valid YAML frontmatter
+4. Open a PR — it auto-labels by incite type
+5. Fill in the harness checklist if applicable
 
 ---
 
 ## Credit
 
-Every challenge credits its contributors in the harness README and the scorecard. Paper identifiers, lens mappers, harness builders, and gap finders all get named.
+Every challenge credits its contributors in the incite.md and the scorecard. Paper identifiers, lens mappers, context weavers, harness builders, and gap finders all get named.
 
-If your challenge reveals a real gap (`gap-found`), you get permanent credit on the scorecard plus an invitation to collaborate on the fix.
+If your challenge reveals a real gap (`gap_found`), you get permanent credit on the scorecard plus an invitation to collaborate on the fix.

@@ -1,0 +1,12 @@
+[package]
+name = "selfcheck-core"
+version = "0.1.0"
+edition = "2021"
+description = "Stealth-normalized forensic toolkit for Cisco appliance compromise detection"
+license = "MIT"
+
+[dependencies]
+anyhow = "1"
+
+[dev-dependencies]
+# None required — all tests use built-in assertions
