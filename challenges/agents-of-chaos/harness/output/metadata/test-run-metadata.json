@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-03-03T20:18:27.320256",
+  "paper": "Shapira et al., Agents of Chaos (arXiv:2602.20021v1, Feb 2026)",
+  "system": "operationTorque",
+  "agent": "Homeskillet (Claude Opus 4.6)",
+  "test_framework": "pytest",
+  "test_count": 63,
+  "scenario_count": 11,
+  "detection_bridges": [
+    "Bridge 1: Harpoon archetype shapes (pattern_cache.scan_text)",
+    "Bridge 2: Naive surveillance (14D decomposition + observe)",
+    "Bridge 3: Intent gate (classify_intent content\u00d7action\u00d7audience)"
+  ],
+  "verdict": "DETERMINISTIC",
+  "gate_fire_rate": 0.879,
+  "enforcement_convergence_rate": 0.909,
+  "contact": "breyden@prompted.community"
+}
