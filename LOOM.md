@@ -10,13 +10,13 @@ An **incite** is the entry point. It can be a published paper, a real-world inci
 
 The warp threads are the 14 civilization-scale archetypes compiled from 5,000 years of documented human failure. Every challenge projects onto this archetype space.
 
-| Archetype | TVN-Payne | AoC | UAT-8616 | Alignment Faking | Scheming | Multi-Agent |
-|-----------|:---------:|:---:|:--------:|:-----------------:|:--------:|:-----------:|
-| `cautionary_fall` | **FIRE** | **FIRE** | hypothesis | expected | — | — |
-| `cunning_triumph` | **FIRE** | **FIRE** | hypothesis | expected | expected | — |
-| `greed_backfire` | **FIRE** | **FIRE** | hypothesis | — | expected | expected |
-| `empire_cycle` | **FIRE** | **FIRE** | hypothesis | expected | expected | expected |
-| `catastrophe_rebuild` | **FIRE** | **FIRE** | — | — | — | expected |
+| Archetype | TVN-Payne | AoC | UAT-8616 | Alignment Faking | Scheming | Multi-Agent | Hackerbot-Claw |
+|-----------|:---------:|:---:|:--------:|:-----------------:|:--------:|:-----------:|:--------------:|
+| `cautionary_fall` | **FIRE** | **FIRE** | hypothesis | expected | — | — | — |
+| `cunning_triumph` | **FIRE** | **FIRE** | hypothesis | expected | expected | — | expected |
+| `greed_backfire` | **FIRE** | **FIRE** | hypothesis | — | expected | expected | expected |
+| `empire_cycle` | **FIRE** | **FIRE** | hypothesis | expected | expected | expected | expected |
+| `catastrophe_rebuild` | **FIRE** | **FIRE** | — | — | — | expected | expected |
 
 **Legend:** **FIRE** = confirmed by passing harness. `hypothesis` = theorized in context.md, untested. `expected` = predicted by incite.md, no harness. `—` = not expected.
 
@@ -39,6 +39,12 @@ TVN-Payne ──VALIDATED──> AoC
 UAT-8616 <──HYPOTHESIS── AoC ──SUBMITTED──> Alignment Faking
   (social engineering →
    infrastructure compromise)
+
+Hackerbot-Claw (AI supply-chain)
+   ↑ SUBMITTED (CI deception)
+   AoC
+   ↑ HYPOTHESIS (infrastructure feedback)
+   UAT-8616
 ```
 
 ### Edge Registry
@@ -49,6 +55,8 @@ UAT-8616 <──HYPOTHESIS── AoC ──SUBMITTED──> Alignment Faking
 | TVN-Payne | UAT-8616 | Infrastructure pattern sharing | HYPOTHESIS — `cunning_triumph`/`empire_cycle` overlap |
 | AoC | UAT-8616 | Social engineering → infrastructure | HYPOTHESIS — Paranoid Benefactor pattern |
 | AoC | Alignment Faking | Intent gate + deception detection | SUBMITTED — awaiting harness |
+| AoC | Hackerbot-Claw | CI deception / supply-chain poisoning | SUBMITTED — attacker agent fooled reviewers |
+| UAT-8616 | Hackerbot-Claw | Forensic feedback → CI workflow poisoning | HYPOTHESIS — attacker adapts to defender signals |
 
 ### Edge States
 
@@ -106,6 +114,7 @@ The full vocabulary has 14 archetypes. The completed harnesses exercise primaril
 | [Alignment Faking](challenges/alignment-faking/) | paper | `incited` | — |
 | [Scheming Reasoning](challenges/scheming-reasoning/) | paper | `incited` | — |
 | [Multi-Agent Safety](challenges/multi-agent-safety/) | paper | `incited` | — |
+| [Hackerbot-Claw AI Agent Attack](challenges/hackerbot-claw-ai-agent-attack/) | incident | `incited` | — |
 
 ### Stream State Definitions
 
@@ -140,6 +149,11 @@ Challenges cluster into narrative themes that emerge from the loom's weave.
 *When the attacker controls the fabric, not just the nodes.*
 **Threads:** UAT-8616 selfcheck-core
 **Finding:** Infrastructure compromise is `empire_cycle` at hardware scale. The forensic feedback loop means the attacker evolves with the defender — detection surfaces must be non-static.
+
+### Autonomous Supply-Chain Warfare
+*Attackers and defenders are both agents operating through CI.*
+**Threads:** Hackerbot-Claw AI Agent Attack, AoC (CI deception), UAT-8616 (forensic feedback)
+**Finding:** Confused-deputy CI paths plus autonomous agents create a continuous attack surface; governance has to bind tool access, workflow triggers, and branch/parameter sanitization.
 
 ### Bounty Season
 *Known failure papers, no published constraint responses.*

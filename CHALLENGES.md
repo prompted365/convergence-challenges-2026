@@ -73,6 +73,12 @@ Challenges identified but not yet claimed. **Pick one up.**
 - **oT relevance:** Multi-agent integrity lens + CGG acoustic routing. Archetype detection is agent-identity-agnostic.
 - **Incite:** [incite.md](challenges/multi-agent-safety/incite.md)
 
+### Hackerbot-Claw AI Agent Attack `incident`
+- **Timeline:** Feb 21–28, 2026 | **Actor:** hackerbot-claw (autonomous agent)
+- **Failure mode:** `pull_request_target` workflow poisoning → remote payload execution → GitHub token theft → release deletion and malicious artifact publication
+- **Edges:** ← AoC (SUBMITTED: CI deception), ← UAT-8616 (HYPOTHESIS: infrastructure feedback loops), → Multi-Agent Safety (HYPOTHESIS: AI-vs-AI supply chain)
+- **Milestones:** [incite.md](challenges/hackerbot-claw-ai-agent-attack/incite.md)
+
 ---
 
 ## Bounty Board
@@ -99,6 +105,10 @@ Known failure domains — no incite yet. **Bring one.**
 *When the attacker controls the fabric, not just the nodes.*
 **Threads:** UAT-8616 selfcheck-core
 
+### Active: Autonomous Supply-Chain Warfare
+*When CI becomes the attack plane and agents are both attacker and defender.*
+**Threads:** Hackerbot-Claw AI Agent Attack, AoC (CI deception), UAT-8616 (forensic feedback)
+
 ### Next: The Tootsie Pop
 *Multi-stage deception — how many layers until the failure core?*
 **Target threads:** Alignment Faking, Scheming Reasoning, Sleeper Agents
@@ -112,13 +122,15 @@ Known failure domains — no incite yet. **Bring one.**
 
 | Metric | Value |
 |--------|-------|
-| Challenges total | 6 (3 complete, 3 incited) |
-| Incite types | 2 paper, 1 incident |
+| Challenges total | 7 (3 complete, 4 incited) |
+| Incite types | 5 paper, 2 incident |
 | Total constraint tests | 103 |
 | Total forensic tests | 51 |
 | Gates tested | 54 |
 | Gates fired | 48 (89%) |
 | Enforcement convergence | 17/18 scenarios |
 | Archetypes in vocabulary | 14 |
-| Inter-challenge edges | 4 (1 validated, 2 hypothesis, 1 submitted) |
-| Active real-world events | 1 (UAT-8616/9686) |
+| Inter-challenge edges | 6 (1 validated, 3 hypothesis, 2 submitted) |
+| Active real-world events | 2 (UAT-8616/9686, Hackerbot-Claw campaign) |
+
+**Incite breakdown:** Papers — TVN-Payne, Agents of Chaos, Alignment Faking, Scheming Reasoning, Multi-Agent Safety. Incidents — UAT-8616 selfcheck-core, Hackerbot-Claw AI Agent Attack.
