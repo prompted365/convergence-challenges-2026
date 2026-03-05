@@ -3,9 +3,15 @@
 **Published an AI failure? Discovered a real-world incident? Prove the fix doesn't exist. We'll prove it does.**
 
 [![Challenges](https://img.shields.io/badge/challenges-7_threads-brightgreen)]()
-[![Tests](https://img.shields.io/badge/tests-154_passing-brightgreen)]()
-[![Gate Rate](https://img.shields.io/badge/gate_rate-89%25-blue)]()
-[![Verdict](https://img.shields.io/badge/verdict-DETERMINISTIC-blueviolet)]()
+[![Lab tests](https://img.shields.io/badge/lab_tests-154_assertions-brightgreen)]()
+[![Governance checks](https://img.shields.io/badge/governance_checks-48_of_54-blue)]()
+[![Stream verdict](https://img.shields.io/badge/stream_verdict-DETERMINISTIC-blueviolet)]()
+
+**What these metrics mean**
+- **Lab tests** aggregate assertions across all harnesses (paper + incident). They mix prevention, detection, and capability-validation scenarios.
+- **Governance checks** are operationTorque gate coverages (content × action × audience governance). Some challenges aim to *enable* safe capability, not just block it.
+- **Stream verdict** reflects the overall lab state, not a single challenge outcome.
+- **Feeds:** No public RSS yet; follow repository releases/issues for updates.
 
 ---
 
