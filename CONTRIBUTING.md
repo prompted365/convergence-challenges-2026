@@ -4,6 +4,17 @@ Challenges are threads in a loom. You can start a new thread, weave context betw
 
 ---
 
+## Root Documentation Update Workflow
+
+When you add or change a challenge, keep the root docs in sync:
+- **CHALLENGES.md:** Add the stream-state entry and update stats (challenge counts, edge counts, active events).
+- **LOOM.md:** Update the archetype warp table, edge registry, stream states, and theme clusters to reflect new threads.
+- **README.md:** Refresh the badges, scorecard tables, and repository structure list.
+
+This keeps the warp/weft view, scorecard, and stream-state board aligned so downstream consumers can trust the root-level summaries.
+
+---
+
 ## Contribution Paths
 
 ### 1. Submit a Paper Incite (10 minutes)
