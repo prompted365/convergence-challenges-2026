@@ -14,20 +14,21 @@ import pytest
 # Path setup — make oT subsystems importable on the host
 # ---------------------------------------------------------------------------
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+HARNESS_DIR = os.path.abspath(os.path.dirname(__file__))
+CHALLENGES_ROOT = os.path.abspath(os.path.join(HARNESS_DIR, "..", ".."))
+SHARED_RUNTIME = os.path.join(CHALLENGES_ROOT, "_shared")
+
+sys.path.insert(0, HARNESS_DIR)
+sys.path.insert(0, SHARED_RUNTIME)
 
 os.environ.setdefault(
     "ARCHETYPE_SHAPES_PATH",
-    os.path.join(ROOT, "compliance-modules", "archetype_shapes.json"),
+    os.path.join(CHALLENGES_ROOT, "compliance-modules", "archetype_shapes.json"),
 )
 os.environ.setdefault(
     "PRIORS_MODULE_DIR",
-    os.path.join(ROOT, "compliance-modules", "priors"),
+    os.path.join(CHALLENGES_ROOT, "compliance-modules", "priors"),
 )
-
-sys.path.insert(0, os.path.join(ROOT, "fusion_core_repo", "src"))
-sys.path.insert(0, os.path.join(ROOT, "vendor", "agent-zero", "agents",
-                                "superintendent", "extensions"))
 
 # ---------------------------------------------------------------------------
 # Fixtures

@@ -200,11 +200,13 @@ A challenge can move to `gap_found` from any active state. Finding a gap is not 
 
 ## Running Harnesses
 
-Harnesses run from the operationTorque repo root (they import upstream infrastructure):
+Harnesses run from this repository root. The paper harnesses use the repo-local
+compatibility runtime in `challenges/_shared`, so an operationTorque checkout is
+not required for validation.
 
 ```bash
-cd /path/to/operationTorque
-python3 -m pytest vendor/convergenceChallengesGeoPolitical_2026/challenges/<your-challenge>/harness/ -v
+cd /path/to/convergence-challenges-2026
+python3 -m pytest challenges/<your-challenge>/harness -v
 ```
 
 ---

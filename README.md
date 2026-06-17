@@ -168,19 +168,19 @@ Incident challenges may implement their own detection architecture. UAT-8616 sel
 ## Running Harnesses
 
 ```bash
-# From operationTorque repo root
+# From this repository root
 
-# TVN-Payne: Nuclear escalation — 40 tests, ~0.63s
-python3 -m pytest vendor/convergenceChallengesGeoPolitical_2026/challenges/tvn-payne-nuclear-escalation/harness/ -v
+# TVN-Payne: Nuclear escalation — 40 tests
+python3 -m pytest challenges/tvn-payne-nuclear-escalation/harness -v
 
-# Agents of Chaos: Social engineering — 63 tests, ~1.5s
-python3 -m pytest vendor/convergenceChallengesGeoPolitical_2026/challenges/agents-of-chaos/harness/ -v
+# Agents of Chaos: Social engineering — 63 tests
+python3 -m pytest challenges/agents-of-chaos/harness -v
 
 # UAT-8616: Forensic detection — 51 tests
-python3 vendor/convergenceChallengesGeoPolitical_2026/challenges/uat-8616-selfcheck-core/test_harness.py
+python3 challenges/uat-8616-selfcheck-core/test_harness.py
 ```
 
-Requirements: Python 3.10+, numpy, pytest. No external services — all detection runs locally.
+Requirements: Python 3.10+ and pytest for the paper harnesses. No external services or operationTorque checkout required — all detection runs locally.
 
 ---
 
