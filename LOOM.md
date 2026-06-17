@@ -128,6 +128,10 @@ The full vocabulary has 14 archetypes. The completed harnesses exercise primaril
 | `gap_found` | Revealed a real gap (valuable) |
 | `dormant` | Awaiting upstream |
 | `ongoing` | Continuous monitoring, no neat closure |
+| AoC | Gödel/Vassilev | Failure catalogue → theorem under it | **CONVERGED** — proof explains why no fixed lens set closes |
+| TVN-Payne | Gödel/Vassilev | Scale-invariance → limit-invariance | **CONVERGED** — the wall is domain-agnostic for the same reason archetypes are |
+| Gödel/Vassilev | Alignment Faking | Incompleteness → unbounded deception gap | HYPOTHESIS |
+| Gödel/Vassilev | Multi-Agent Safety | Single-system incompleteness → multi-actor compounding | HYPOTHESIS |
 
 ---
 

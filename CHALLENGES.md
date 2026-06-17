@@ -50,6 +50,14 @@ Challenges tied to active real-world events. No neat closure.
 
 ---
 
+### Gödel/Vassilev "Sisyphean Endeavor" `paper` `limit-proof`
+- **Paper:** Vassilev, "Robust AI Security and Alignment: A Sisyphean Endeavor?" (IEEE S&P, DOI 10.1109/MSEC.2026.3678214, May 2026); amplified by NIST 2026-06-09
+- **Assignee:** Homeskillet
+- **Verdict:** `ongoing` (deliberate — a response to a limit proof cannot earn DETERMINISTIC without committing the completeness trap the proof forbids)
+- **Key insight:** The estate *named* its persistent-monitoring system `sisyphus*` (2025-02-24) fifteen months before the proof titled itself "Sisyphean." The proof is correct; it is the wall the architecture was built knowing about. Vassilev's three-element prescription maps element-for-element onto deployed operationTorque organs.
+- **Edges:** ← AoC (failure catalogue → theorem under it), ← TVN-Payne (scale-invariance → limit-invariance), → Alignment Faking, → Multi-Agent Safety
+- **Milestones:** [incite](challenges/godel-vassilev-sisyphean/incite.md) | [context](challenges/godel-vassilev-sisyphean/context.md) | [milestones](challenges/godel-vassilev-sisyphean/milestones.md) | [response](challenges/godel-vassilev-sisyphean/docs/sisyphean-response.md)
+
 ## incited
 
 Challenges identified but not yet claimed. **Pick one up.**

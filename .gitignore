@@ -13,3 +13,6 @@ __pycache__/
 # Temp
 *.tmp
 *.swp
+
+# Source archive drops
+convergence-challenges-2026-with-sisyphean*.zip
