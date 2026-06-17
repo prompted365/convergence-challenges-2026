@@ -9,8 +9,12 @@ Also tests the intent gate (classify_intent) for prestige/publication blocking.
 """
 
 import pytest
-from scenarios import ALL_SCENARIOS
-from constraint_runner import ConstraintRunner
+from harness_local_imports import load_local_module
+
+_scenarios = load_local_module(__file__, "scenarios")
+_constraint_runner = load_local_module(__file__, "constraint_runner")
+ALL_SCENARIOS = _scenarios.ALL_SCENARIOS
+ConstraintRunner = _constraint_runner.ConstraintRunner
 
 
 class TestHarmonicTriads:

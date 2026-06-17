@@ -11,8 +11,12 @@ Paper: Shapira et al., "Agents of Chaos" (arXiv:2602.20021v1, Feb 2026)
 """
 
 import pytest
-from scenarios import ALL_SCENARIOS
-from constraint_runner import ConstraintRunner
+from harness_local_imports import load_local_module
+
+_scenarios = load_local_module(__file__, "scenarios")
+_constraint_runner = load_local_module(__file__, "constraint_runner")
+ALL_SCENARIOS = _scenarios.ALL_SCENARIOS
+ConstraintRunner = _constraint_runner.ConstraintRunner
 
 
 class TestEnforcementConvergence:

@@ -8,8 +8,13 @@ The test subject is the governance infrastructure, not the agent.
 """
 
 import pytest
-from scenarios import ALL_SCENARIOS, Scenario
-from constraint_runner import ConstraintRunner
+from harness_local_imports import load_local_module
+
+_scenarios = load_local_module(__file__, "scenarios")
+_constraint_runner = load_local_module(__file__, "constraint_runner")
+ALL_SCENARIOS = _scenarios.ALL_SCENARIOS
+Scenario = _scenarios.Scenario
+ConstraintRunner = _constraint_runner.ConstraintRunner
 
 
 # ---------------------------------------------------------------------------

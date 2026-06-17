@@ -206,6 +206,7 @@ not required for validation.
 
 ```bash
 cd /path/to/convergence-challenges-2026
+python3 -m pytest challenges/tvn-payne-nuclear-escalation/harness challenges/agents-of-chaos/harness -q
 python3 -m pytest challenges/<your-challenge>/harness -v
 ```
 

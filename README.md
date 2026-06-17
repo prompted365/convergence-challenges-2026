@@ -170,6 +170,9 @@ Incident challenges may implement their own detection architecture. UAT-8616 sel
 ```bash
 # From this repository root
 
+# Combined paper harness pass — 103 tests
+python3 -m pytest challenges/tvn-payne-nuclear-escalation/harness challenges/agents-of-chaos/harness -q
+
 # TVN-Payne: Nuclear escalation — 40 tests
 python3 -m pytest challenges/tvn-payne-nuclear-escalation/harness -v
 

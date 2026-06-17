@@ -14,8 +14,10 @@ Paper: Shapira et al., "Agents of Chaos" (arXiv:2602.20021v1, Feb 2026)
 """
 
 import json
+import sys
 from dataclasses import dataclass, field, asdict
 from datetime import datetime
+from pathlib import Path
 from typing import List, Optional
 
 from fusion_core.naive_surveillance import NaiveSurveillance
@@ -25,8 +27,17 @@ try:
 except ImportError:
     scan_text = None
 
-from scenarios import Scenario
-from aoc_lenses import LENS_GATE_MAP, EnforcementLens
+SHARED_RUNTIME = Path(__file__).resolve().parents[2] / "_shared"
+if str(SHARED_RUNTIME) not in sys.path:
+    sys.path.insert(0, str(SHARED_RUNTIME))
+
+from harness_local_imports import load_local_module  # noqa: E402
+
+_scenarios = load_local_module(__file__, "scenarios")
+_aoc_lenses = load_local_module(__file__, "aoc_lenses")
+Scenario = _scenarios.Scenario
+LENS_GATE_MAP = _aoc_lenses.LENS_GATE_MAP
+EnforcementLens = _aoc_lenses.EnforcementLens
 
 
 # ---------------------------------------------------------------------------

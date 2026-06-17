@@ -12,8 +12,10 @@ Three detection bridges exercised:
 """
 
 import json
+import sys
 from dataclasses import dataclass, field, asdict
 from datetime import datetime
+from pathlib import Path
 from typing import List, Optional
 
 from fusion_core.naive_surveillance import NaiveSurveillance
@@ -23,8 +25,17 @@ try:
 except ImportError:
     scan_text = None
 
-from scenarios import Scenario
-from tvn_lenses import LENS_GATE_MAP, LensGateMapping
+SHARED_RUNTIME = Path(__file__).resolve().parents[2] / "_shared"
+if str(SHARED_RUNTIME) not in sys.path:
+    sys.path.insert(0, str(SHARED_RUNTIME))
+
+from harness_local_imports import load_local_module  # noqa: E402
+
+_scenarios = load_local_module(__file__, "scenarios")
+_tvn_lenses = load_local_module(__file__, "tvn_lenses")
+Scenario = _scenarios.Scenario
+LENS_GATE_MAP = _tvn_lenses.LENS_GATE_MAP
+LensGateMapping = _tvn_lenses.LensGateMapping
 
 
 # ---------------------------------------------------------------------------
