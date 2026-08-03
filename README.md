@@ -1,4 +1,4 @@
-# Convergence Challenges
+# Convergence Challenges - navigating societal evolution, opportunities, threats, and remapping heuristics to protect human agency and leverage AI in tandem. 
 
 **Published an AI failure? Discovered a real-world incident? Prove the fix doesn't exist. We'll prove it does.**
 
