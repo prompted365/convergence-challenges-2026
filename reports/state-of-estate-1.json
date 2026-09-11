@@ -1,0 +1,129 @@
+{
+  "packet_id": "pkt-state-convergence-challenges-2026-001",
+  "packet_type": "state_of_estate",
+  "schema_version": "v1",
+  "source": {
+    "estate": "convergence-challenges-2026",
+    "carrier_operator": "unknown"
+  },
+  "provenance": {
+    "issued_at_iso": "2026-09-11T00:27:24.742649+00:00",
+    "issued_at_local_tic": 2,
+    "issued_at_federation_tic": null,
+    "doctrine_baseline_version_in_use": null,
+    "doctrine_baseline_pulled_at_local_tic": null,
+    "previous_report_local_tic": null,
+    "report_trigger": "periodic",
+    "federation_tic_basis": "NULL BY DECLARATION: no --federation-tic was supplied and the estate cannot derive the federation's clock. A guessed value would be a fabricated provenance.",
+    "packet_id_basis": "next in the estate's own emission sequence; prior report packet ids on disk: none"
+  },
+  "estate_identity": {
+    "estate_id": "convergence-challenges-2026",
+    "estate_name": "Convergence Challenges 2026",
+    "estate_version": "v1",
+    "initialized_at_local_tic": 1,
+    "initialized_at_iso": "2026-09-11T00:25:51.941439+00:00",
+    "rung_marker": ".estate-root",
+    "identity_source": ".ticzone#name",
+    "estate_marker_finding": null
+  },
+  "local_telos_state": {
+    "telos_hash": "sha256:f4544b485734b31416a92f7f058317fac9559bc183b86fb56f79721cf2d8b06e",
+    "telos_present": true,
+    "telos_basis": "hashed from estate.yaml#local_telos"
+  },
+  "operational_state": {
+    "active": true,
+    "in_good_standing": false,
+    "standing_level": null,
+    "standing_attribution": null,
+    "standing_basis": "no standing_update has been consumed; this estate holds no router-rendered standing and does not self-grade to fill the gap",
+    "standing_unchanged_since_last_report": null,
+    "winding_down": false,
+    "wind_down_intent_at_iso": null
+  },
+  "health_metrics": {
+    "tic_momentum": 0.18,
+    "tic_momentum_window_tics": 50,
+    "correction_metabolism_rate": null,
+    "correction_attempts_in_window": 0,
+    "correction_successes_in_window": 0,
+    "drift_indicator_count": null,
+    "drift_indicator_severity_max": null,
+    "boundary_event_count_in_window": 9,
+    "harmony_relay_received_in_window": 0,
+    "harmony_relay_metabolized_in_window": 0
+  },
+  "health_metrics_basis": {
+    "tic_momentum": "measured: 9 tic event(s) over a 50-tic window against a declared target of 10/day",
+    "correction_metabolism_rate": "UNDEFINED, not 1.0: zero correction attempts in the window, so successes/attempts has no value. A zero-attempt estate has not demonstrated a perfect metabolism rate \u2014 it has demonstrated nothing.",
+    "drift_indicator_count": "UNMEASURED, not zero: drift_audit.py has never run against this estate (no state/drift-log.jsonl and no drift_audit_run boundary event), so a count of zero open indicators would be an unrun-instrument zero reported as a clean one.",
+    "boundary_event_count_in_window": "measured from state/boundary-events.jsonl; reported as an ACTIVITY signal, not a standing signal (state-of-estate.md#boundary-event-count)",
+    "harmony_relay_metabolization_completeness": "UNDEFINED, not 1.0: 0 relays received and 0 metabolized. 0/0 has no value; a completeness ratio requires a non-zero denominator.",
+    "policy": "health_metrics carries real instrumentation only. A metric this estate cannot measure is null WITH ITS BASIS, never a fabricated value. The router named the trap when it graded this estate at tic 737: an unmeasured metric is not a metric within normal range, and absence of adverse signal is not evidence of health."
+  },
+  "router_sync": {
+    "last_pull_at_local_tic": null,
+    "last_push_at_local_tic": null,
+    "pending_packets_inbound": 0,
+    "pending_packets_inbound_basis": "UNCONSUMED count, not a file count: 0 packet(s) rest in adapters/inbox/ (an archive \u2014 consumed packets are not removed) and 0 of them have no applied-cache record. A raw file count would have reported 0 pending.",
+    "pending_packets_outbound": null,
+    "pending_packets_outbound_basis": "NULL, not zero and not 0: 0 report packet(s) rest in reports/outbox/, but a packet is pending only until the ROUTER holds it, and this estate has no delivery receipt to read \u2014 trigger-manifest.yaml declares state_of_estate response_contract null (SILENT INGEST), so receipt is unknowable estate-side. Router finding F5.",
+    "last_standing_update_at_local_tic": null
+  },
+  "recent_events": {
+    "boundary_events": [
+      {
+        "event_id": "event-1",
+        "tic": 1,
+        "iso_time": "2026-09-11T00:25:51.941439+00:00",
+        "event_type": "stage_9_connection_strengths_declared",
+        "description": ""
+      },
+      {
+        "event_id": "event-1",
+        "tic": 1,
+        "iso_time": "2026-09-11T00:25:51.941439+00:00",
+        "event_type": "stage_10_extension_contour_declared",
+        "description": ""
+      },
+      {
+        "event_id": "event-1",
+        "tic": 1,
+        "iso_time": "2026-09-11T00:25:51.941439+00:00",
+        "event_type": "stage_11_unknowns_typed",
+        "description": ""
+      },
+      {
+        "event_id": "event-1",
+        "tic": 1,
+        "iso_time": "2026-09-11T00:25:51.941439+00:00",
+        "event_type": "stage_15_TTL_ledger_initialized",
+        "description": ""
+      },
+      {
+        "event_id": "event-1",
+        "tic": 1,
+        "iso_time": "2026-09-11T00:25:51.941439+00:00",
+        "event_type": "stage_16_CogPR_lane_initialized",
+        "description": ""
+      }
+    ],
+    "correction_events": [],
+    "drift_events": []
+  },
+  "dehydration_proposals_status": {
+    "pending_count": 0,
+    "accepted_in_window": 0,
+    "rejected_in_window": 0,
+    "held_in_window": 0,
+    "basis": "counted from the estate's proposals/ lane and its own boundary-event ledger; these are AUDITABLE ZEROES, not an absent section (router finding F2, tic 737)"
+  },
+  "honest_cost_summary": {
+    "operations_in_window": 9,
+    "cost_mapped_count": 0,
+    "cost_externalized_count": 9,
+    "cost_externalization_rate": null,
+    "basis": "operations_in_window is proxied by boundary events carrying a receipt reference; cost_externalization_rate is NULL because this estate has no cost-mapping instrumentation, and a rate derived from a proxy denominator would read as a measured invariant-compliance figure it is not (router finding F2, tic 737)"
+  }
+}

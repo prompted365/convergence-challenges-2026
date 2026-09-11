@@ -1,0 +1,69 @@
+# .estate-root — Estate Identity Marker
+#
+# This file's PRESENCE in a directory marks that directory as an
+# estate root. Its CONTENTS identify the specific estate.
+#
+# Walking up the filesystem from any descendant, the first directory
+# containing .estate-root is the estate's root. See
+# references/estate-root-protocol.md for full semantics.
+#
+# This file is canonical for the estate. Modifying it is a
+# constitutional event; receipts should be inscribed in
+# state/boundary-events.jsonl when changes occur.
+
+estate_id: convergence-challenges-2026         # globally unique within Federation; e.g., "myestate-prod"
+estate_name: Convergence Challenges 2026      # human-readable; e.g., "My Estate"
+estate_version: v1                        # estate-seed version that initialized
+initialized_at_iso: 2026-09-11T00:25:51.941439+00:00
+initialized_at_tic: 1                     # local tic at initialization (always 1 for fresh init)
+
+carrier_operator:
+  name: Breyden Taylor
+  email: breyden@prompted.community
+  contact: null   # optional additional contact info
+
+federation_relationship:
+  # NOTE: parent_federation is an INTENTIONAL Ubiquity binding — not a
+  # generic placeholder. EstateSeed v1 is authored under and delivered
+  # by the Ubiquity Federation; estates hydrated from this seed inherit
+  # Ubiquity baseline doctrine, Ubiquity invariants, and the Ubiquity
+  # router contract by default. Forking the seed for a different parent
+  # federation requires re-authoring this default + the corresponding
+  # baseline-doctrine adapter cache, not just editing this field.
+  parent_federation: ubiquity              # intentional Ubiquity binding (see note above)
+  router_endpoint: local                   # URL or "local" for local-only mode
+  standing: good                           # initial standing; updated by router
+  serving_estate: null                     # if this is a client estate, set to serving estate ID
+  serving_estate_endpoint: null            # if serving_estate set, how to reach it
+
+# The local telos lane is in estate.yaml (this file is identity only)
+local_telos_file: estate.yaml
+
+# Substrate scope is defined by .ticzone/.ticignore at this directory
+# (dotted forms — canonical-recognized; federation scanners require dot prefix)
+ticzone_file: .ticzone
+ticignore_file: .ticignore
+
+# Adapter, state, reports, and proposals directories
+adapters_dir: adapters
+state_dir: state
+reports_dir: reports
+proposals_dir: proposals
+
+# Seed-level TTL — governs estate identity revalidation cadence.
+# Distinct from packet-level TTL (router-adapter-discipline.md).
+# Both are tic-indexed; different lifecycle objects. Verbatim entries
+# are never deleted on expiry per federation TTL Governs Heat doctrine.
+# See audit-logs/governance/rtch-design-lane/thermal-ttl-extension-tic227.md.
+seed_ttl:
+  generated_at_tic: 1
+  ttl_tics: constitutional             # estate identity non-expiring unless terminated
+  expires_at_tic: null                  # null for constitutional
+  revalidation_cadence_tics: 1000       # routine self-review cadence
+  next_revalidation_due_tic: 1001
+  governing_clock: tic
+  notes: |
+    Seed-level TTL governs estate identity revalidation. Operational
+    TTL fields for sub-surfaces live in their respective template
+    files (sovereignty_map.yaml, extension_contour.yaml,
+    handoff_contract.yaml). The TTL Lane Actor watches all four.

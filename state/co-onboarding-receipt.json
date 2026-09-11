@@ -1,0 +1,11 @@
+{
+  "recorded_at_iso": "2026-09-11T00:25:51.941439+00:00",
+  "recorded_at_local_tic": 1,
+  "emergence_mode": "internal",
+  "skip_flag": true,
+  "roles_present": {
+    "principal": "Breyden Taylor (Architect, ent_breyden)",
+    "ai_operator": "ent_homeskillet (claude-fable-5)"
+  },
+  "results": []
+}

@@ -1,0 +1,111 @@
+# ticignore — Patterns excluded from estate substrate scope
+#
+# Files matching these patterns are NOT part of the substrate-
+# pressure-field even if they would otherwise match ticzone.
+#
+# Syntax: gitignore-style patterns. Lines starting with # are
+# comments. Empty lines are ignored.
+#
+# Customize after estate initialization. The defaults handle common
+# build artifacts, dependencies, and editor noise. Some estates may
+# want different exclusions (e.g., open-source estates may want
+# lockfiles in scope).
+
+# Version control
+.git/
+.svn/
+.hg/
+
+# Dependencies and build artifacts
+node_modules/
+vendor/
+target/
+build/
+dist/
+.next/
+.nuxt/
+out/
+bin/
+obj/
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.tox/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg
+.coverage
+htmlcov/
+
+# JavaScript/TypeScript artifacts
+.parcel-cache/
+.turbo/
+.vercel/
+.netlify/
+
+# Editor and OS
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.env
+.env.local
+.env.*.local
+
+# Logs and cache
+*.log
+logs/
+.cache/
+.tmp/
+tmp/
+
+# Lockfiles (treated as derived; not substrate)
+package-lock.json
+yarn.lock
+poetry.lock
+Cargo.lock
+Pipfile.lock
+composer.lock
+Gemfile.lock
+*.lock
+
+# Large binary content (treated as data, not substrate)
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.bz2
+*.7z
+*.rar
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.ico
+*.pdf
+*.mp3
+*.mp4
+*.wav
+*.mov
+*.avi
+*.webm
+*.ogg
+
+# Sensitive content (estates handle separately)
+secrets/
+*.pem
+*.key
+*.cert
+*.crt
+.aws/
+.ssh/
+.gnupg/

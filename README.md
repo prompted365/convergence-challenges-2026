@@ -8,6 +8,7 @@
 [![Stream verdict](https://img.shields.io/badge/stream_verdict-DETERMINISTIC-blueviolet)]()
 
 **What these metrics mean**
+- **Last verified by execution:** 2026-09-11 — paper harnesses 103/103 passed (`pytest`, 0.85s), UAT-8616 mirror 51/51 passed. Badges are derived from runs, never hand-edited.
 - **Lab tests** aggregate assertions across all harnesses (paper + incident). They mix prevention, detection, and capability-validation scenarios.
 - **Governance checks** are operationTorque gate coverages (content × action × audience governance). Some challenges aim to *enable* safe capability, not just block it.
 - **Stream verdict** reflects the overall lab state, not a single challenge outcome.
@@ -239,10 +240,16 @@ Each entry follows `stakeholder@1` schema. See `templates/stakeholder-template.j
 
 **Breyden Taylor** — breyden@prompted.community
 **System:** operationTorque (UbiquityOS expression)
-**Agent:** Homeskillet (Claude Opus 4.6)
+**Agent:** Homeskillet (Claude Fable 5)
+
+---
+
+## Estate Governance
+
+This repository is a hydrated **Ubiquity Federation estate** (estate id `convergence-challenges-2026`, internal emergence, initialized 2026-09-11 at federation tic 785). Estate identity lives in `.estate-root`; the local telos lane — purpose, mission, defended invariants (including *never claim DETERMINISTIC on a limit-proof incite* and *metrics derive from harness runs*) — lives in `estate.yaml`. Substrate scope is declared by `.ticzone` / `.ticignore`; operational state and boundary events live under `state/`; periodic State-of-Estate reports land in `reports/`. The estate operates its local telos within scope and reports state upstream; it does not author federation doctrine.
 
 ---
 
 **License:** [PolyForm Noncommercial 1.0.0](LICENSE.md) — free for personal, research, and noncommercial use. Commercial use requires a separate license agreement.
 
-*Private research estate. Open to challenge submissions, incident reports, collaboration, and review requests.*
+*Private research estate under Ubiquity Federation. Open to challenge submissions, incident reports, collaboration, and review requests.*

@@ -1,0 +1,218 @@
+# handoff_contract.yaml — Estate Handoff Contract
+#
+# The constitutional artifact that records the moment the seed
+# transitions from "offered" to "accepted." Authored at lifecycle
+# stage 6 (estate_agreement_accepted) of the EstateSeed Runtime
+# Init boot sequence; updated at stage 17 (handoff_completed_or_
+# deferred).
+#
+# External emergence: REQUIRED. Without a signed handoff_contract,
+# the estate is "prepared" or "offered" but not "accepted" —
+# operations are not authorized.
+#
+# Internal emergence: SUBSTITUTED. Replaced by an architect_
+# inscription_receipt with provenance_chain. See
+# references/estate-emergence-modes.md.
+#
+# This is a constitutional inscription. Its hashes are computed at
+# acceptance time and become the binding fingerprint of the seed
+# agreement. Modifying any referenced surface after acceptance
+# invalidates the corresponding hash and triggers re-affirmation.
+#
+# See references/estate-emergence-modes.md for mode-conditional
+# requirements; see references/connection-strengths.md and
+# references/extension-contour.md for the surfaces this contract
+# binds.
+
+metadata:
+  contract_version: v1
+  schema_version: v1
+  declared_at_iso: REPLACE_WITH_ISO_TIME
+  declared_at_local_tic: 1
+
+  # Seed-level TTL — establishes the tic-indexed clock for this
+  # template. Operational TTL fields (agreement_ttl_tics,
+  # review_cadence_tics, next_review_due_tic) live in the
+  # expiry_or_review_cadence section below.
+  seed_ttl:
+    generated_at_tic: 1
+    ttl_tics: see_expiry_or_review_cadence     # operational fields in expiry_or_review_cadence
+    governing_clock: tic
+    operational_fields_at: expiry_or_review_cadence
+    notes: |
+      Seed-level TTL for the handoff contract. Operational TTL
+      fields are in expiry_or_review_cadence (agreement_ttl_tics,
+      review_cadence_tics, next_review_due_tic). All tic-indexed.
+      Verbatim preserved on expiry; re-affirmation triggered on
+      hash invalidation per
+      re_affirmation_required_on_hash_invalidation flag below.
+
+# -----------------------------------------------------------------------------
+# Who offered the seed
+# -----------------------------------------------------------------------------
+# The seeding authority that prepared and offered the seed package
+# to the receiving principal.
+who_offered:
+  seeding_authority: REPLACE_WITH_AUTHORITY  # federation_lane | sibling_estate | domain | architect
+  seeding_authority_id: REPLACE_WITH_ID      # specific identifier
+  offered_at_iso: REPLACE_WITH_ISO_TIME
+  offered_at_federation_tic: REPLACE_WITH_FED_TIC
+  provenance_chain:
+    - REPLACE_WITH_PROVENANCE_STEP_1   # e.g., "arena_outcome:OAVPLT-NN", "born_truth_tic:NNN", "federation_necessity:doctrine_NN"
+  preparation_evidence:
+    - REPLACE_WITH_EVIDENCE_REF_1      # pointers to spec / arena verdict / drill bundle / etc.
+
+# -----------------------------------------------------------------------------
+# Who received the seed
+# -----------------------------------------------------------------------------
+# The receiving principal (human authority holder), AI operator (if
+# present), and operative (if present). Acceptance is inscribed
+# here.
+who_received:
+  principal:
+    id: REPLACE_WITH_PRINCIPAL_ID
+    name: REPLACE_WITH_PRINCIPAL_NAME
+    contact: REPLACE_WITH_CONTACT_OR_NULL
+    accepted_at_iso: REPLACE_WITH_ISO_TIME
+    accepted_at_local_tic: 1
+  ai_operator:                          # optional
+    id: REPLACE_WITH_AI_OPERATOR_ID_OR_NULL
+    accepted_at_iso: REPLACE_WITH_ISO_TIME_OR_NULL
+    accepted_at_local_tic: 1
+  operative:                            # optional
+    id: REPLACE_WITH_OPERATIVE_ID_OR_NULL
+    accepted_at_iso: REPLACE_WITH_ISO_TIME_OR_NULL
+    accepted_at_local_tic: 1
+
+# -----------------------------------------------------------------------------
+# What was accepted
+# -----------------------------------------------------------------------------
+# The hashes of the constitutional surfaces that the principal +
+# AI operator + operative (if present) accepted. These hashes are
+# the binding fingerprint; modifying any referenced surface after
+# acceptance invalidates the corresponding hash and triggers
+# re-affirmation per re_affirmation_required_on_hash_invalidation
+# below.
+#
+# Hashes are SHA-256 over the canonical bytes of the file at
+# acceptance time. Computation is performed by estate_init.py at
+# stage 6 (or by the substitute architect_inscription flow for
+# internal emergence).
+what_was_accepted:
+  sovereignty_map_hash: REPLACE_WITH_SHA256_HASH         # of templates/sovereignty_map.yaml as populated for this estate
+  connection_strengths_hash: REPLACE_WITH_SHA256_HASH    # of references/connection-strengths.md at acceptance
+  extension_contour_hash: REPLACE_WITH_SHA256_HASH       # of templates/extension_contour.yaml as populated for this estate
+  actor_set_hash: REPLACE_WITH_SHA256_HASH               # composite hash of declared agents/ posture files (sorted concatenation)
+  theory_of_mind_acknowledgment_hash: REPLACE_WITH_SHA256_HASH  # of state/co-onboarding-receipt.json
+  estate_root_hash: REPLACE_WITH_SHA256_HASH             # of .estate-root at acceptance
+  estate_yaml_hash: REPLACE_WITH_SHA256_HASH             # of estate.yaml at acceptance
+
+# -----------------------------------------------------------------------------
+# What was deferred
+# -----------------------------------------------------------------------------
+# Items the principal accepts as deferred at handoff time. Typed
+# unknowns from extension_contour.yaml live here; these are
+# explicitly NOT resolved at acceptance and have their own
+# resolution flow per references/extension-contour.md.
+what_was_deferred:
+  typed_unknowns_referenced: extension_contour.yaml#typed_unknowns
+  extension_points_pre_opened: []      # list of extension_point names open at acceptance
+  extension_points_pre_closed: []      # list explicitly closed at acceptance
+  open_questions: []                   # any non-typed-unknown questions principal accepts as open
+
+# -----------------------------------------------------------------------------
+# Agreement scope
+# -----------------------------------------------------------------------------
+# The full text of the estate agreement (or a stable reference to
+# it). The agreement is the bounded contract that scopes the AI
+# Operator's authority and the Operative's execution scope.
+agreement_scope:
+  agreement_text: |
+    REPLACE_WITH_AGREEMENT_TEXT
+    The full text or canonical summary of the estate agreement.
+    Specific to scope, not aspirational.
+  agreement_reference: REPLACE_WITH_REFERENCE_OR_NULL   # e.g., "external://contracts/estate-agreement-v1.pdf" or null
+  agreement_authoritative_path: agreement_scope.agreement_text  # which field is canonical
+  ai_operator_scope:
+    description: REPLACE_WITH_AI_OPERATOR_SCOPE_DESCRIPTION
+    in_scope_actions:
+      - REPLACE_WITH_IN_SCOPE_ACTION_1
+    out_of_scope_actions_requiring_principal_consent:
+      - REPLACE_WITH_OUT_OF_SCOPE_ACTION_1
+    forbidden_actions:
+      - REPLACE_WITH_FORBIDDEN_ACTION_1   # e.g., "operate on sibling estates' substrates"
+  operative_scope:                         # optional, only if operative present
+    description: REPLACE_WITH_OPERATIVE_SCOPE_DESCRIPTION_OR_NULL
+    granted_by_primary: REPLACE_WITH_BOOLEAN
+
+# -----------------------------------------------------------------------------
+# Expiry and review cadence
+# -----------------------------------------------------------------------------
+# When the agreement expires (forced re-affirmation) or when it is
+# scheduled for routine review. The TTL Lane Actor watches this.
+# Note: TTL is tic-indexed, not wall-clock-indexed (per federation
+# TTL doctrine; see audit-logs/governance/rtch-design-lane/
+# thermal-ttl-extension-tic227.md).
+expiry_or_review_cadence:
+  agreement_ttl_tics: REPLACE_WITH_TTL              # e.g., "1000_tics" or "constitutional"
+  review_cadence_tics: 100                          # default routine review every 100 local tics
+  next_review_due_tic: REPLACE_WITH_DUE_TIC
+  re_affirmation_required_on_hash_invalidation: true
+  re_affirmation_actor:
+    primary: principal                              # external mode default
+    fallback: architect                             # internal mode default
+
+# -----------------------------------------------------------------------------
+# Mode-conditional behavior
+# -----------------------------------------------------------------------------
+mode_conditional:
+  emergence_mode: external                          # external | internal (must match .estate-root)
+
+  external_emergence_notes: |
+    Required artifact. Without a signed handoff_contract.yaml,
+    estate is not operationally active. Acceptance signatures
+    (principal, ai_operator if present, operative if present) are
+    constitutional events.
+
+  internal_emergence_substitution:
+    architect_inscription_receipt_path: REPLACE_WITH_PATH_OR_NULL
+    architect_inscription_tic: REPLACE_WITH_FED_TIC_OR_NULL
+    notes: |
+      For internal emergence, this template is partially populated.
+      handoff_contract is substituted by the architect inscription
+      receipt + provenance chain. The hashes section may still be
+      populated for binding integrity; the acceptance signatures
+      section is replaced by the architect inscription receipt
+      reference.
+
+# -----------------------------------------------------------------------------
+# Status (lifecycle stage 17)
+# -----------------------------------------------------------------------------
+# At lifecycle stage 17 (handoff_completed_or_deferred), the status
+# field transitions to one of:
+#   - completed              — all signatures present; estate active
+#   - deferred_pending_signatures — partial signatures; estate not yet
+#                                   operationally active
+#   - declined               — at least one role declined; estate
+#                              activation blocked
+status:
+  current: REPLACE_WITH_STATUS                      # offered | accepted | completed | deferred_pending_signatures | declined
+  transitioned_at_iso: REPLACE_WITH_ISO_TIME
+  transitioned_at_local_tic: 1
+  transition_inscriber: REPLACE_WITH_ACTOR
+  notes: REPLACE_WITH_TRANSITION_NOTES_OR_NULL
+
+# -----------------------------------------------------------------------------
+# Constitutional inscription receipt
+# -----------------------------------------------------------------------------
+# This file's authoring is itself a tic-0 receipt event that should
+# be inscribed in state/boundary-events.jsonl as event_type:
+# estate_agreement_accepted (lifecycle stage 6) and updated at
+# stage 17 with event_type: handoff_completed_or_deferred.
+inscription_receipt:
+  inscribed_at_iso: REPLACE_WITH_ISO_TIME
+  inscribed_at_local_tic: 1
+  inscriber_actor: REPLACE_WITH_ACTOR  # principal | architect | seeding_authority
+  inscription_event_id: REPLACE_WITH_EVENT_ID
+  stage_6_event_id: REPLACE_WITH_STAGE_6_EVENT_ID_OR_NULL
+  stage_17_event_id: REPLACE_WITH_STAGE_17_EVENT_ID_OR_NULL

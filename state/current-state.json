@@ -1,0 +1,18 @@
+{
+  "estate_id": "convergence-challenges-2026",
+  "estate_name": "Convergence Challenges 2026",
+  "current_tic": 1,
+  "initialized_at_iso": "2026-09-11T00:25:51.941439+00:00",
+  "operational_state": "active",
+  "seed_lifecycle_stage": 13,
+  "highest_stage_reached": 16,
+  "emergence_mode": "internal",
+  "standing": null,
+  "standing_basis": "unrendered \u2014 the router grades; the estate never self-grades (null by declaration until a standing_update packet is consumed)",
+  "winding_down": false,
+  "last_state_report_tic": 2,
+  "last_doctrine_pull_tic": null,
+  "doctrine_baseline_version_in_use": null,
+  "last_state_report_iso": "2026-09-11T00:27:24.742649+00:00",
+  "last_reported_standing": null
+}

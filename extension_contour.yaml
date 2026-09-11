@@ -1,0 +1,146 @@
+# extension_contour.yaml — Typed Unknowns and Extension Points
+#
+# Declared at tic 0 as part of EstateSeed Runtime Init. This file
+# specifies what the seed knows it does not know (typed unknowns)
+# and where the estate may grow beyond its seed-time shape
+# (extension points).
+#
+# The contour is honest about uncertainty rather than pretending the
+# seed is complete. Future operations resolve typed unknowns through
+# typed mechanisms (resolution_actor, default_assumption); future
+# growth uses extension_points with explicit authority gates.
+#
+# This is a constitutional inscription. Modifying it after seed time
+# is a significant event; receipts must be inscribed in
+# state/boundary-events.jsonl.
+#
+# See references/extension-contour.md for the full doctrine.
+
+metadata:
+  declared_at_iso: REPLACE_WITH_ISO_TIME
+  declared_at_local_tic: 1
+  declarer_authority: REPLACE_WITH_AUTHORITY  # principal | architect_inscription | seeding_authority
+  schema_version: v1
+
+  # Seed-level TTL — establishes the tic-indexed clock for this
+  # template. Operational TTL fields (cadence_tics,
+  # next_review_due_tic) live in the contour_review section below.
+  # Per-typed_unknown TTLs live in typed_unknowns[].ttl_tics.
+  seed_ttl:
+    generated_at_tic: 1
+    ttl_tics: see_contour_review               # operational fields in contour_review
+    governing_clock: tic
+    operational_fields_at: contour_review
+    notes: |
+      Seed-level TTL for the extension contour. Operational TTL
+      fields are in contour_review (cadence_tics,
+      next_review_due_tic). Per-typed_unknown TTLs are in
+      typed_unknowns[].ttl_tics. All tic-indexed. Verbatim
+      preserved on expiry per federation TTL Governs Heat doctrine.
+
+# -----------------------------------------------------------------------------
+# Typed unknowns
+# -----------------------------------------------------------------------------
+# Things the seed knows it does not know. Each unknown carries:
+#   name             — human-readable label
+#   type             — scalar | structured | reference | open_question
+#   description      — what is unknown and why it matters
+#   ttl_tics         — how long the default_assumption holds before
+#                      forced revisit (or "constitutional" for
+#                      non-expiring open questions)
+#   resolution_actor — who resolves the unknown when typed
+#                      (principal | primary | ai_operator |
+#                       seeding_authority | federation_review |
+#                       external)
+#   default_assumption — what the estate assumes while unresolved
+#                        (must be operatively safe — system continues
+#                        to function under this assumption without
+#                        producing drift)
+#   surfacing_trigger — condition that forces re-examination earlier
+#                       than TTL expiry (e.g.,
+#                       "first_dehydration_proposal_submitted")
+
+typed_unknowns:
+  - name: REPLACE_WITH_UNKNOWN_NAME_1
+    type: open_question                            # scalar | structured | reference | open_question
+    description: REPLACE_WITH_DESCRIPTION_1
+    ttl_tics: REPLACE_WITH_TTL                     # e.g., "100_tics" or "constitutional"
+    resolution_actor: REPLACE_WITH_ACTOR
+    default_assumption: REPLACE_WITH_ASSUMPTION
+    surfacing_trigger: REPLACE_WITH_TRIGGER
+
+# -----------------------------------------------------------------------------
+# Extension points
+# -----------------------------------------------------------------------------
+# Places where the estate may grow beyond its seed-time shape. Each
+# extension point carries authority gates that must be satisfied
+# before growth proceeds.
+#
+# Authority gates:
+#   requires_principal_consent — Principal must inscribe consent
+#   ai_operator_authorized     — AI Operator may execute the growth
+#                                under agreement scope
+#   architect_required         — federation Architect inscription
+#                                required (typically for federation-
+#                                touching extensions)
+#   cogpr_required             — change must route through
+#                                dehydration_proposal +
+#                                federation /review
+#
+# Extension points should default to closed (requires_principal_consent
+# AND architect_required if uncertain). Opening them is the
+# constitutional event, not the inscription itself.
+
+extension_points:
+  - name: REPLACE_WITH_EXTENSION_NAME_1
+    description: REPLACE_WITH_EXTENSION_DESCRIPTION_1
+    requires_principal_consent: true
+    ai_operator_authorized: false
+    architect_required: false
+    cogpr_required: false
+    receipts_required:
+      - REPLACE_WITH_RECEIPT_TYPE
+    notes: REPLACE_WITH_NOTES   # rationale for the gate configuration
+
+# -----------------------------------------------------------------------------
+# Contour review cadence
+# -----------------------------------------------------------------------------
+# When the estate revisits unresolved typed_unknowns and re-evaluates
+# extension_points. The TTL Lane Actor surfaces this cadence; the
+# Primary integrates the review.
+contour_review:
+  cadence_tics: 50                    # default: every 50 local tics
+  cadence_iso: P30D                   # ISO 8601 duration; P30D = 30 days
+  next_review_due_tic: REPLACE_WITH_DUE_TIC
+
+# -----------------------------------------------------------------------------
+# Mode-conditional defaults
+# -----------------------------------------------------------------------------
+# External and internal emergence have different default authority
+# gate configurations. See references/extension-contour.md.
+mode_conditional_defaults:
+  external_emergence:
+    extension_point_default_gates:
+      requires_principal_consent: true   # Principal is the authority gate
+      ai_operator_authorized: false
+      architect_required: false
+      cogpr_required: false              # raise to true for federation-canonical-touching extensions
+
+  internal_emergence:
+    extension_point_default_gates:
+      requires_principal_consent: false  # no outside Principal
+      ai_operator_authorized: false
+      architect_required: true           # federation Architect inscription gates internal growth
+      cogpr_required: false              # raise to true for federation-canonical-touching extensions
+
+# -----------------------------------------------------------------------------
+# Constitutional inscription receipt
+# -----------------------------------------------------------------------------
+# This file's authoring is itself a tic-0 receipt event that should
+# be inscribed in state/boundary-events.jsonl as event_type:
+# extension_contour_declared (lifecycle stages 10 + 11).
+inscription_receipt:
+  inscribed_at_iso: REPLACE_WITH_ISO_TIME
+  inscribed_at_local_tic: 1
+  inscriber_actor: REPLACE_WITH_ACTOR  # principal | architect | seeding_authority
+  inscription_event_id: REPLACE_WITH_EVENT_ID

@@ -1,0 +1,237 @@
+# sovereignty_map.yaml — Estate Sovereignty Topology and Connection Strengths
+#
+# Declared at tic 0 as part of EstateSeed Runtime Init. This file
+# specifies which relations are sovereign to the estate, which are
+# connected to the seeding body, what the federation observes vs
+# governs, and how each declared relationship is shaped along
+# multiple dimensions.
+#
+# Mode-conditional defaults differ for external vs internal
+# emergence. See references/estate-emergence-modes.md.
+#
+# This is a constitutional inscription. Modifying it after seed time
+# is a significant event; receipts must be inscribed in
+# state/boundary-events.jsonl.
+#
+# See references/connection-strengths.md for taxonomy + dimensions.
+
+metadata:
+  declared_at_iso: REPLACE_WITH_ISO_TIME
+  declared_at_local_tic: 1
+  declarer_authority: REPLACE_WITH_AUTHORITY  # principal | architect_inscription | seeding_authority
+  emergence_mode: external                     # external | internal (must match .estate-root)
+  schema_version: v1
+
+  # Seed-level TTL — governs whole-map revalidation cadence.
+  # Distinct from packet-level TTL. Per-relation TTLs live in
+  # relationships[].TTL below.
+  seed_ttl:
+    generated_at_tic: 1
+    ttl_tics: constitutional                   # sovereignty map is constitutional unless updated
+    expires_at_tic: null
+    revalidation_cadence_tics: 100             # routine sovereignty-map review cadence
+    next_revalidation_due_tic: 101
+    governing_clock: tic
+    notes: |
+      Seed-level TTL governs whole-map revalidation. Per-relation
+      TTLs are declared in relationships[].TTL. Both are tic-
+      indexed; verbatim never deleted on expiry per federation TTL
+      Governs Heat doctrine.
+
+# -----------------------------------------------------------------------------
+# Sovereignty axes
+# -----------------------------------------------------------------------------
+# Eight axes describing what the estate considers sovereign vs
+# connected vs federation-observed/governed at tic 0. Each entry
+# names what specifically falls under the axis for THIS estate.
+#
+# NOTE: not necessarily a moral hierarchy — the axes are partly
+# ordinal (deeper axes carry more federation entanglement) and partly
+# categorical (some things sit in multiple axes).
+sovereignty:
+  sovereign_to_estate:
+    description: "Aspects fully under estate authority within scope."
+    examples_for_this_estate:
+      - REPLACE_WITH_SOVEREIGN_ASPECT_1   # e.g., local telos articulation
+      - REPLACE_WITH_SOVEREIGN_ASPECT_2   # e.g., operational tactics within ticzone
+
+  connected_to_seeding_body:
+    description: "Aspects connected to the seeding authority by lineage; not severable without inscription."
+    examples_for_this_estate:
+      - REPLACE_WITH_CONNECTED_ASPECT_1   # e.g., parent_federation: ubiquity
+      - REPLACE_WITH_CONNECTED_ASPECT_2   # e.g., baseline doctrine inheritance
+
+  federation_observed:
+    description: "Aspects the federation observes (state reports flow up) but does not govern."
+    examples_for_this_estate:
+      - REPLACE_WITH_OBSERVED_ASPECT_1    # e.g., tic momentum
+      - REPLACE_WITH_OBSERVED_ASPECT_2    # e.g., correction metabolism rate
+
+  federation_governed:
+    description: "Aspects the federation governs; estate cannot violate."
+    examples_for_this_estate:
+      - REPLACE_WITH_GOVERNED_ASPECT_1    # e.g., constitutional invariants
+      - REPLACE_WITH_GOVERNED_ASPECT_2    # e.g., authority-flows-downward rule
+
+  estate_local:
+    description: "Operations local to this estate; not visible to siblings."
+    examples_for_this_estate:
+      - REPLACE_WITH_ESTATE_LOCAL_ASPECT_1
+
+  domain_local:
+    description: "Operations local to a domain under this estate."
+    examples_for_this_estate:
+      - REPLACE_WITH_DOMAIN_LOCAL_ASPECT_1
+
+  nested:
+    description: "Aspects that exist nested under this estate (sub-substrates)."
+    examples_for_this_estate:
+      - REPLACE_WITH_NESTED_ASPECT_1      # e.g., a domain at <estate>/domain-x/
+
+  subnested:
+    description: "Aspects nested below the nested level (sites, lanes, modules)."
+    examples_for_this_estate:
+      - REPLACE_WITH_SUBNESTED_ASPECT_1
+
+# -----------------------------------------------------------------------------
+# Severability axes
+# -----------------------------------------------------------------------------
+# Six axes describing severance authority. Severability is canonically
+# grounded by termination semantics (references/estate-termination.md);
+# this section refines per-relation severability beyond the binary
+# active-vs-terminated estate state.
+severability:
+  severable_unilaterally:
+    description: "Estate may sever; no upstream consent required."
+    relations: []   # populated by per-relation declarations below
+
+  non_severable:
+    description: "Estate may not sever; constitutional binding."
+    relations: []
+
+  consent_required_to_change:
+    description: "Modification requires Principal consent."
+    relations: []
+
+  ai_operator_allowed_to_change:
+    description: "AI Operator may modify within agreement scope."
+    relations: []
+
+  architect_required:
+    description: "Federation Architect inscription required to change."
+    relations: []
+
+  cogpr_required:
+    description: "Change requires routing through dehydration_proposal + federation /review."
+    relations: []
+
+# -----------------------------------------------------------------------------
+# Connection strengths
+# -----------------------------------------------------------------------------
+# Ten classes of connection strength, declared as a taxonomy for the
+# estate to apply per-relationship. Strengths are partly ordinal
+# (constitutional > deep_fusion_winch_and_cable > federation_governed
+# > ... > detached_artifact) and partly categorical (a relation may
+# belong to multiple classes).
+#
+# NOTE: deep_fusion_winch_and_cable and sever_and_winch terminology
+# are Architect-proposed candidates, marked candidate_reserved —
+# requires review after first use. Other classes are canonically
+# grounded.
+connection_strengths_taxonomy:
+  detached_artifact:
+    description: "Artifact sits in scope but carries no governance load."
+    canonical_status: established
+  advisory:
+    description: "Advisory connection; no operational binding."
+    canonical_status: established
+  receipt_only:
+    description: "Connection records receipts; no further operational coupling."
+    canonical_status: established
+  observation:
+    description: "Federation observes; estate emits; no return packet flow."
+    canonical_status: established
+  weak_operational:
+    description: "Light operational coupling; severable on cadence."
+    canonical_status: established
+  domain_attached:
+    description: "Coupled to a specific domain under this estate."
+    canonical_status: established
+  estate_attached:
+    description: "Coupled to estate identity; persists across domain churn."
+    canonical_status: established
+  federation_governed:
+    description: "Federation invariants apply; estate cannot violate."
+    canonical_status: established
+  constitutional:
+    description: "Constitutional binding; severance requires termination."
+    canonical_status: established
+  deep_fusion_winch_and_cable:
+    description: "Architect-proposed: fusion-class binding with cable preserved to seeding body. Candidate vocabulary."
+    canonical_status: candidate_reserved   # requires review after first use
+
+# -----------------------------------------------------------------------------
+# Relationships
+# -----------------------------------------------------------------------------
+# List of declared relationships at tic 0. Each relationship encodes
+# nine dimensions:
+#   who_initiates    — actor who originated the relationship
+#   who_accepts      — actor who accepted the relationship
+#   who_severs       — actor authorized to sever
+#   who_amends       — actor authorized to amend
+#   receipts_required — what receipts the relationship produces
+#   TTL              — revalidation cadence (or "constitutional" for non-expiring)
+#   harmony_tracks   — whether Harmony observes/relates to this relation
+#   cogpr_promotable — whether learnings from this relation may route via dehydration
+#   visitor_visible  — whether visitors / sibling estates / federation surfaces see this
+#   connection_strength — classification from taxonomy above
+#   sovereignty_axis — classification from sovereignty axes above
+#   severability_axis — classification from severability axes above
+#
+# Replace placeholders with the estate's actual relationships.
+relationships:
+  - relation_id: REPLACE_WITH_RELATION_ID_1
+    description: REPLACE_WITH_RELATION_DESCRIPTION_1
+    who_initiates: REPLACE_WITH_ACTOR
+    who_accepts: REPLACE_WITH_ACTOR
+    who_severs: REPLACE_WITH_ACTOR
+    who_amends: REPLACE_WITH_ACTOR
+    receipts_required:
+      - REPLACE_WITH_RECEIPT_TYPE_1
+    TTL: REPLACE_WITH_TTL                     # e.g., "100_tics" or "P30D" or "constitutional"
+    harmony_tracks: false
+    cogpr_promotable: false
+    visitor_visible: false
+    connection_strength: REPLACE_WITH_STRENGTH        # one or more from taxonomy
+    sovereignty_axis: REPLACE_WITH_SOVEREIGNTY_AXIS   # one or more from sovereignty
+    severability_axis: REPLACE_WITH_SEVERABILITY_AXIS
+
+# -----------------------------------------------------------------------------
+# Mode-conditional defaults
+# -----------------------------------------------------------------------------
+# External and internal emergence have different default sets of
+# pre-declared relationships. See references/estate-emergence-modes.md.
+mode_conditional_defaults:
+  external_emergence_default_relationships:
+    - parent_federation_inheritance         # connection_strength: federation_governed
+    - principal_acceptance_handoff          # connection_strength: constitutional
+    - ai_operator_agreement_scope           # connection_strength: estate_attached
+    - router_packet_flow                    # connection_strength: receipt_only
+
+  internal_emergence_default_relationships:
+    - federation_lineage_inheritance        # connection_strength: federation_governed
+    - architect_inscription_provenance      # connection_strength: constitutional
+    - federation_native_ai_operator         # connection_strength: estate_attached (or none)
+    - router_packet_flow                    # connection_strength: receipt_only
+
+# -----------------------------------------------------------------------------
+# Constitutional inscription receipt
+# -----------------------------------------------------------------------------
+# This file's authoring is itself a tic-0 receipt event that should
+# be inscribed in state/boundary-events.jsonl as event_type:
+# sovereignty_map_declared.
+inscription_receipt:
+  inscribed_at_iso: REPLACE_WITH_ISO_TIME
+  inscribed_at_local_tic: 1
+  inscriber_actor: REPLACE_WITH_ACTOR  # principal | architect | seeding_authority
+  inscription_event_id: REPLACE_WITH_EVENT_ID

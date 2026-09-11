@@ -1,0 +1,9 @@
+{
+  "name": "convergence-challenges-2026",
+  "tz": "UTC",
+  "include": ["."],
+  "bands": ["PRIMITIVE", "COGNITIVE", "SOCIAL"],
+  "muffling_per_hop": 5,
+  "notes": "Convergence Challenges 2026 estate (Pattern-B: gitignored + ticignored from the federation; own repo prompted365/convergence-challenges-2026, private). Challenge responses to AI-safety/governance convergence papers and incidents — constraint harnesses, stakeholder registry, Federal Register monitoring. Internal emergence, Architect-directed at federation tic 785 (2026-09-11). Substrate-scope pattern detail lives in .ticignore (exclusions); local telos in estate.yaml. Federation root .ticzone is at canonical/. Estate ADMISSION as covenant object routes through /review; this file is seed-level identity.",
+  "parent_ticzone": "../../.ticzone"
+}

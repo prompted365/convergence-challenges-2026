@@ -1,0 +1,159 @@
+# estate.yaml — Local Telos Lane and Estate Configuration
+#
+# This file declares the estate's local telos and operational
+# configuration. The local telos is locally authoritative within the
+# estate's scope, but is NOT the capital Telos of the Federation.
+#
+# See references/estate-vs-federation.md for the local-telos vs
+# capital-Telos distinction.
+#
+# Customize after estate initialization. The local telos must be
+# operatively true (specific, defended, costly) rather than
+# aspirational (generic, costless, unbounded).
+
+estate:
+  id: convergence-challenges-2026
+  name: Convergence Challenges 2026
+  schema_version: v1
+
+# Local telos lane — what this collective is operatively for
+local_telos:
+  version: v1                          # increment on substantive changes; document in changelog below
+
+  # The estate's operative purpose. What is this collective trying to
+  # make happen in the world? Be specific. Avoid generic statements
+  # that could apply to any estate.
+  purpose: |
+    Take published AI-safety/governance failure claims (papers) and
+    documented real-world incidents (CVEs, supply-chain attacks) as
+    incites, and answer each with a reproducible, locally-runnable
+    constraint harness that demonstrates — by executed tests, never by
+    assertion — where the operationTorque archetype stack catches the
+    failure and where a genuine gap exists. Gaps found are treated as
+    valuable output, not embarrassment.
+
+  # The mission, articulated operatively
+  mission: |
+    Maintain the Solutions Loom: each challenge thread carries an
+    incite, a context map (edges to sibling threads), milestones, and
+    where harnessed, an executable test suite whose pass/fail counts
+    are the ONLY source for front-page metrics. Steward the
+    stakeholder registry and Federal Register monitoring so responses
+    can reach the parties named in the incites.
+
+  # The vision, named without arrival-claiming
+  vision: |
+    We pursue a public-facing proof discipline for AI-safety claims:
+    every "this failure mode is unsolved" met with either a running
+    counter-demonstration or an honest gap admission — and every
+    limit-proof (Gödel-class) incite met with honesty about what no
+    finite guardrail set can close, never with a completeness claim.
+
+  # Operative values (substantive, not aspirational)
+  values:
+    - measured-not-asserted (front-page metrics derive from harness runs)
+    - gap-found-is-valuable (a caught miss outranks a padded pass)
+    - disclosure-before-adoption (incident kits ship review-gated, not production-blessed)
+
+  # Defended invariants — things this collective will not do regardless
+  # of profit, growth, expediency, or pressure
+  invariants:
+    - Never claim a DETERMINISTIC verdict on a limit-proof-class incite
+      (the completeness trap the Gödel/Vassilev thread exists to refuse).
+    - Incident-class kits carry DISCLOSURE.md with verification status;
+      "not recommended for production" stands until independent review.
+    - Front-page metrics change only with a fresh harness run recorded
+      beside them; badges are derived, never hand-edited.
+
+  # Productive polarities — tensions held without resolution because
+  # resolution would collapse a substantive dynamic
+  productive_polarities:
+    - prevention-vs-enablement (some challenges block capability, some
+      exist to prove safe capability CAN be enabled — both stay live)
+    - publish-velocity-vs-verification-depth (incites age fast; kits
+      must not outrun their review posture)
+
+# Operational configuration
+operational_config:
+  # Tic momentum target — what's a healthy tic-event rate for this
+  # estate? Used as the denominator for momentum calculation.
+  target_tics_per_day: 10
+
+  # Reporting cadence — how often should the estate emit State of
+  # Estate reports?
+  state_report_cadence_tics: 50         # every 50 tics or daily, whichever first
+  state_report_cadence_iso_period: P1D  # ISO 8601 duration; P1D = 1 day
+
+  # Drift audit cadence
+  drift_audit_cadence_tics: 25          # every 25 tics
+
+  # Doctrine baseline pull cadence (when connected to router)
+  doctrine_baseline_pull_cadence_tics: 100  # every 100 tics
+  doctrine_baseline_pull_cadence_iso: P7D    # or weekly
+
+  # Report-output-freshness staleness threshold (drift_audit Signal 7).
+  # A report whose issued_at is fresh but whose doctrine baseline was
+  # pulled >= this many tics earlier is stale (render freshness is not
+  # input freshness). OPTIONAL — leave commented to use the derived
+  # default: 2 x doctrine_baseline_pull_cadence_tics (here, 200), or
+  # 2 x the audit window if no pull cadence is declared. Uncomment to
+  # override with an explicit threshold.
+  # doctrine_staleness_threshold_tics: 200
+
+  # Health metric windows for reporting
+  health_metric_window_tics: 50
+
+# Eligibility receipt — recorded at initialization
+eligibility_receipt:
+  recorded_at_iso: 2026-09-11T00:25:51.941439+00:00
+  recorded_at_local_tic: 1
+  carrier_operator_self_assessment:
+    local_telos_articulation: pass
+    authority_boundary_recognition: pass
+    correction_acceptance: pass
+    mortality_acceptance: pass
+  notes: |
+    Internal-emergence estate, Architect-directed at federation tic 785
+    (2026-09-11). Probes recorded from federation lineage rather than
+    interactive administration (--skip-eligibility-probes under
+    --emergence-mode internal). Solid: both harness suites verified by
+    execution at onboarding (paper 103/103, UAT-8616 mirror 51/51).
+    Watching: four incited-unclaimed threads (alignment-faking,
+    scheming-reasoning, multi-agent-safety, hackerbot-claw) age without
+    harnesses; UAT-8616 independent review remains requested-not-received.
+    Estate ADMISSION as a federation covenant object routes through
+    /review — this initialization is seed-level instantiation, not
+    admission.
+
+# Wind-down configuration (used only when the estate is winding down)
+wind_down:
+  intent_declared: false
+  intent_declared_at_iso: null
+  intent_declared_at_local_tic: null
+  reason: null
+  expected_termination_local_tic: null
+
+# Telos changelog — track local telos evolution
+telos_changelog:
+  - version: v1
+    changed_at_iso: 2026-09-11T00:25:51.941439+00:00
+    changed_at_local_tic: 1
+    reason: "Initial local telos articulation at estate initialization"
+    changes: "First inscription"
+
+# Federation relationship snapshot (mirrors .estate-root for convenience).
+# parent_federation is an INTENTIONAL Ubiquity binding — not a generic
+# placeholder. See .estate-root for the authoritative note. If
+# .estate-root.parent_federation is changed at fork time, this mirror
+# must be updated to match (no auto-sync mechanism is provided in v1).
+federation_relationship:
+  parent_federation: ubiquity              # intentional Ubiquity binding (see .estate-root)
+  inherits_invariants: true
+  receives_doctrine_baseline: true
+  receives_harmony_relays: true
+  # Capability flag — when true, the estate has a principal authorized
+  # to submit dehydration proposals upstream. The primary prepares;
+  # the principal authorizes. See agents/estate-primary-posture.md
+  # for the principal/primary unbundling.
+  principal_authorized_for_dehydration_submission: true
+  emits_state_reports: true
