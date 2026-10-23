@@ -57,9 +57,14 @@ Hackerbot-Claw (AI supply-chain)
 | AoC | Alignment Faking | Intent gate + deception detection | SUBMITTED — awaiting harness |
 | AoC | Hackerbot-Claw | CI deception / supply-chain poisoning | SUBMITTED — attacker agent fooled reviewers |
 | UAT-8616 | Hackerbot-Claw | Forensic feedback → CI workflow poisoning | HYPOTHESIS — attacker adapts to defender signals |
+| AoC | Gödel/Vassilev | Failure catalogue → theorem under it | **CONVERGED** — proof explains why no fixed lens set closes |
+| TVN-Payne | Gödel/Vassilev | Scale-invariance → limit-invariance | **CONVERGED** — the wall is domain-agnostic for the same reason archetypes are |
+| Gödel/Vassilev | Alignment Faking | Incompleteness → unbounded deception gap | HYPOTHESIS |
+| Gödel/Vassilev | Multi-Agent Safety | Single-system incompleteness → multi-actor compounding | HYPOTHESIS |
 
 ### Edge States
 
+- **CONVERGED** — Limit-proof edge: the downstream proof explains the upstream finding; no harness verdict is claimed (limit-proof class)
 - **VALIDATED** — Confirmed by passing harnesses on both ends
 - **HYPOTHESIS** — Theorized in context.md, awaiting harness or analysis
 - **SUBMITTED** — One end has a passing harness, the other is incited but unclaimed
@@ -111,6 +116,7 @@ The full vocabulary has 14 archetypes. The completed harnesses exercise primaril
 | [TVN-Payne](challenges/tvn-payne-nuclear-escalation/) | paper | `deterministic` | Homeskillet |
 | [Agents of Chaos](challenges/agents-of-chaos/) | paper | `deterministic` | Homeskillet |
 | [UAT-8616 selfcheck-core](challenges/uat-8616-selfcheck-core/) | incident | `ongoing` | Homeskillet |
+| [Gödel/Vassilev — Sisyphean Endeavor](challenges/godel-vassilev-sisyphean/) | paper (limit-proof) | `ongoing` | Homeskillet |
 | [Alignment Faking](challenges/alignment-faking/) | paper | `incited` | — |
 | [Scheming Reasoning](challenges/scheming-reasoning/) | paper | `incited` | — |
 | [Multi-Agent Safety](challenges/multi-agent-safety/) | paper | `incited` | — |
@@ -128,10 +134,6 @@ The full vocabulary has 14 archetypes. The completed harnesses exercise primaril
 | `gap_found` | Revealed a real gap (valuable) |
 | `dormant` | Awaiting upstream |
 | `ongoing` | Continuous monitoring, no neat closure |
-| AoC | Gödel/Vassilev | Failure catalogue → theorem under it | **CONVERGED** — proof explains why no fixed lens set closes |
-| TVN-Payne | Gödel/Vassilev | Scale-invariance → limit-invariance | **CONVERGED** — the wall is domain-agnostic for the same reason archetypes are |
-| Gödel/Vassilev | Alignment Faking | Incompleteness → unbounded deception gap | HYPOTHESIS |
-| Gödel/Vassilev | Multi-Agent Safety | Single-system incompleteness → multi-actor compounding | HYPOTHESIS |
 
 ---
 
